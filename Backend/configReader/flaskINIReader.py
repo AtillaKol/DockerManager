@@ -1,6 +1,4 @@
 
-import configparser
-import os
 from .configFile import configFileClass
 
 class flaskConfigReader(configFileClass):
