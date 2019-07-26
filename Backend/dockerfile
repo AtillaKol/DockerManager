@@ -6,8 +6,14 @@ WORKDIR /usr/src/app
 
 COPY ./Requirements/requirements.txt ./
 
+# Update von pip, falls diese benötigt wird
+RUN pip install --upgrade pip
+
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Erstelle einen Alias (schön und so)
+RUN echo "alias ls='ls --color=auto'" >> ~/.bashrc
 
 COPY . .
 
-CMD [ "python3.7", "main.py" ]
+CMD [ "python3.7", "./main.py" ]
