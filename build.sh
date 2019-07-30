@@ -7,4 +7,4 @@ docker-compose build
 
 
 # Starte das Image und lösche es, sobald es verlassen ist
-docker run --rm dockermanager_python 
+docker run --rm -p '5000:5000'  dockermanager_python 

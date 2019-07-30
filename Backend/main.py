@@ -1,7 +1,10 @@
 
-from configReader.flaskINIReader import flaskConfigReader
-
-flaskConfigInstance = flaskConfigReader()
+from FlaskApplication.runFlask import flaskApplicationRunner
 
 if __name__ == '__main__':
-	print(flaskConfigInstance.getHost())
+	
+	# Instaz von flaskApplicationRunner
+	flaskApplication = flaskApplicationRunner()
+
+	# Die App laufen lassen
+	flaskApplication.runFlaskApplication()
