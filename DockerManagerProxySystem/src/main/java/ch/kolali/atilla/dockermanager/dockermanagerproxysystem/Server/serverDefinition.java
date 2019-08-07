@@ -75,7 +75,8 @@ public class serverDefinition {
         URI uriRequest = exchange.getRequestURI();
         String containerString = serverDefinition.dockerSocket.getRequest(uriRequest.toString());
         try {
-            exchange.sendResponseHeaders(200, containerString.getBytes().length);
+            // Take the status code which was given by the getRequest method from the class DockerSocketDataHandler.
+            exchange.sendResponseHeaders(serverDefinition.dockerSocket.getStatusCode(), containerString.getBytes().length);
             OutputStream output = exchange.getResponseBody();
             output.write(containerString.getBytes());
             output.close();
