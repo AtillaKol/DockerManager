@@ -18,6 +18,8 @@
 ----------------------------------------------------------------------------- */
 package ch.kolali.atilla.dockermanager.dockermanagerproxysystem;
 
+import ch.kolali.atilla.dockermanager.dockermanagerproxysystem.Server.serverDefinition;
+
 /**
  * This class contains the main-method to launch and run the application.
  *
@@ -27,7 +29,7 @@ package ch.kolali.atilla.dockermanager.dockermanagerproxysystem;
 public class mainClass {
 
     public static void main(String[] args) {
-
+        serverDefinition server = new serverDefinition();
+        server.runServer();
     }
-
 }
