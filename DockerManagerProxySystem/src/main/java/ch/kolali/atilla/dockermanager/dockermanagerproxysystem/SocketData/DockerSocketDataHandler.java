@@ -23,6 +23,8 @@ import ch.kolali.atilla.dockermanager.dockermanagerproxysystem.PropertiesHandler
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class will handle all requests towards the Docker Socket.
@@ -35,6 +37,8 @@ public class DockerSocketDataHandler {
     private dockerProperties docker = new dockerProperties();
     private int statusCode;
 
+    private final Logger LOGGER = LoggerFactory.getLogger(DockerSocketDataHandler.class);
+
     /**
      * This method will handle all endpoints with the type of GET.
      *
@@ -46,6 +50,7 @@ public class DockerSocketDataHandler {
         Process p;
         String output;
         try {
+            this.LOGGER.info("Curl is going to be executed");
             p = Runtime.getRuntime().exec("curl -i --unix-socket " + this.docker.getDockerSocketPath() + " http://localhost" + endpoint);
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
             StringBuilder builder = new StringBuilder();
@@ -58,12 +63,14 @@ public class DockerSocketDataHandler {
                 if (output.contains("{")) {
                     builder.append(output);
                 }
+                System.out.println(output);
             }
             p.waitFor();
             p.destroy();
+            this.LOGGER.info("Curl executed successfully and output retunred to the user");
             return builder.toString();
         } catch (IOException | InterruptedException e) {
-            System.out.println("Something went wrong while running Process: " + e.toString());
+            this.LOGGER.error("Something went wrong while running Process: " + e.toString());
         }
         return null;
     }
