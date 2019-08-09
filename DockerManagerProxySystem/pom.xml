@@ -20,7 +20,20 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <pathToMain>ch.kolali.atilla.dockermanager.dockermanagerproxysystem.mainClass</pathToMain>
+        <logback>1.2.3</logback>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback}</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>

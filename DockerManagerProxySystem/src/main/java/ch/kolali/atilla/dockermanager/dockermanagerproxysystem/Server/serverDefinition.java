@@ -29,6 +29,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.URI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class will definie the "proxy" server.
@@ -41,6 +43,8 @@ public class serverDefinition {
     private HttpServer server;
     private static DockerSocketDataHandler dockerSocket;
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(serverDefinition.class);
+
     /**
      * The constructor.
      *
@@ -50,8 +54,9 @@ public class serverDefinition {
         serverDefinition.dockerSocket = new DockerSocketDataHandler();
         try {
             this.server = HttpServer.create(new InetSocketAddress(serverProperties.getHttpServerPort()), 0);
+            LOGGER.info("The server will listen on port: " + serverProperties.getHttpServerPort() + ", but server is not started yet");
         } catch (IOException e) {
-            System.out.println("Couldn't create http Server: " + e.toString());
+            LOGGER.error("Couldn't create http Server: " + e.toString());
         }
     }
 
@@ -63,6 +68,7 @@ public class serverDefinition {
         HttpContext context = this.server.createContext("/");
         context.setHandler(serverDefinition::getDockerContainers);
         this.server.start();
+        LOGGER.info("The Server has started");
     }
 
     /**
@@ -80,8 +86,9 @@ public class serverDefinition {
             OutputStream output = exchange.getResponseBody();
             output.write(containerString.getBytes());
             output.close();
+            LOGGER.info("All Data shwon to user");
         } catch (IOException e) {
-            System.out.println("Something went wrong while creating the response: " + e.toString());
+            LOGGER.error("Something went wrong while creating the response: " + e.toString());
         }
     }
 
