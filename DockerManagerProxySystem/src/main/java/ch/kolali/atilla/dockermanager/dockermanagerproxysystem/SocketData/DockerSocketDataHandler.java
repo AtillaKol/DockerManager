@@ -63,7 +63,6 @@ public class DockerSocketDataHandler {
                 if (output.contains("{")) {
                     builder.append(output);
                 }
-                System.out.println(output);
             }
             p.waitFor();
             p.destroy();
