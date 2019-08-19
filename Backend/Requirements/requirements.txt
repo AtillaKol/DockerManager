@@ -1,2 +1,5 @@
 
 configparser==3.7.4
+Flask==1.1.1
+Flask-RESTful==0.3.7
+requests2==2.16.0

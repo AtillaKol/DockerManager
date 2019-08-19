@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Kleines Script, um mein Leben zu vereinfachen
+# Small Script to make life easier
 
 
-# Diese Methode wird die Exit-Codes der ausgeführten Befehle ansehen, um zu schauen, ob es irgendwo einen Fehler gab. Je nach Exit-Code wird das Skript mit dem Exit Code 1 verlassen
+# This small function will always check what exit code the latest perform command has returned
 function executingStaps() {
 
 	if [ $1 -eq 0 ]
@@ -11,21 +11,21 @@ function executingStaps() {
 		echo $2
 	else
 		echo $3
-		# Sobald etwas Schief läuft, stoppe das Skript mit dem Status 1
+		# When something went wrong kill the whole script 
 		exit 1
 	fi
 }
 
 
-# Lass den Befehl 'docker info' laufen. Alle Ausgaben werden nach /dev/null weitergeleitet (die Ausgaben sind für den Nutzer grundsätzlich irrelevant)
+# Execute command docker info and pipe everything into /dev/null -> output is not imported
+# The only purpose of this command is to check if docker is running on the host machine
 docker info > /dev/null 2>&1
 
-# Speichere den Exit-Code vom letzten Befehl
+# Store the exit code from the latest performed command
 exitCode=$?
 
 executingStaps "$exitCode" "Docker läuft. docker-compose build wird gestartet." "Docker läuft nicht. Skript wird abgebrochen. Bitte Docker starten und neu versuchen."
 
-# Führt den Befehl aus
 docker-compose build
 
 exitCode=$?
@@ -34,5 +34,16 @@ executingStaps "$exitCode" "docker-compose build erfolgreich ausgeführt. docker
 
 docker-compose up
 
-# Alles erflogreich ausgeführt
+# Store the container id which should be stopped and deleted
+dockerContainerID=$(docker ps -a -q --filter=ancestor=dockermanager_python)
+
+# Stop the container if needed (does not create an error, so just do it :D)
+docker stop $dockerContainerID
+
+# Delete the container
+docker rm $dockerContainerID
+
+echo "Deleted container"
+
+# Everyting was executed successfully
 exit 0
