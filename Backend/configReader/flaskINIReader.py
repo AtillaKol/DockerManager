@@ -5,6 +5,7 @@ class flaskConfigReader(configFileClass):
 
 	host = None
 	port = None
+	debug = None
 
 	# The constructor
 	def __init__(self):
@@ -14,6 +15,8 @@ class flaskConfigReader(configFileClass):
 		self.host = flaskConfig['FlaskConfiguration']['host']
 		# Stores the value port inside the variable port
 		self.port = flaskConfig['FlaskConfiguration']['port']
+		# Stores the value debug inside the variable debug
+		self.debug = flaskConfig['FlaskConfiguration']['debug']
 
 	# This method will return the value of host
 	def getHost(self):
@@ -22,3 +25,7 @@ class flaskConfigReader(configFileClass):
 	# This method will return the value of port
 	def getPort(self):
 		return self.port
+
+	# This method will return the value of debug
+	def getDebug(self):
+		return self.debug

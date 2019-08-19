@@ -18,6 +18,7 @@ function executingStaps() {
 
 
 # Execute command docker info and pipe everything into /dev/null -> output is not imported
+# The only purpose of this command is to check if docker is running on the host machine
 docker info > /dev/null 2>&1
 
 # Store the exit code from the latest performed command
@@ -33,8 +34,14 @@ executingStaps "$exitCode" "docker-compose build erfolgreich ausgeführt. docker
 
 docker-compose up
 
-# Delete all containers based from the images dockermanager_python
-docker rm $(docker ps -a -q --filter=ancestor=dockermanager_python)
+# Store the container id which should be stopped and deleted
+dockerContainerID=$(docker ps -a -q --filter=ancestor=dockermanager_python)
+
+# Stop the container if needed (does not create an error, so just do it :D)
+docker stop $dockerContainerID
+
+# Delete the container
+docker rm $dockerContainerID
 
 echo "Deleted container"
 
