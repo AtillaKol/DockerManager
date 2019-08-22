@@ -1,0 +1,17 @@
+
+# Base image
+FROM node:10
+
+# Defines /usr/src/app as a place where the application should be "built"
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+# update the packages and install curl into to container -> curl is istalled for testing purpose (you can delete it if wanted)
+RUN apt-get update && apt-get install -y curl
+
+RUN npm install
+
+COPY . .
+
+CMD [ "npm", "start" ]
