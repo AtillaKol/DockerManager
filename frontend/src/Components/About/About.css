@@ -1,0 +1,15 @@
+
+.aboutTitle {
+	border-bottom: groove;
+}
+
+div.aboutTitle h1 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 0 0 0 20px;
+	font-size: 30px;
+}
+
+.mainParagraph {
+	line-height: 1.6em;
+}
