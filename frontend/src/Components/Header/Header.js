@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import {  BrowserRouter as Router, Route } from 'react-router-dom';
+import './Header.css';
 
 
 class Header extends Component {
@@ -9,10 +10,10 @@ class Header extends Component {
 		return(
 			<div className="container">
 				<div className="headerSection">
-					penis
+					test mesasge
 				</div>
 			</div>
-		)
+		);
 	}
 }
 
