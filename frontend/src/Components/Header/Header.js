@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import {  BrowserRouter as Router, Route } from 'react-router-dom';
+import {  BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import './Header.css';
 
 
@@ -8,10 +8,9 @@ class Header extends Component {
 
 	render(){
 		return(
-			<div className="container">
-				<div className="headerSection">
-					test mesasge
-				</div>
+			<div className="headerSection">
+				<Link className="routingLink" to="#">All containers</Link>
+				<Link className="routingLink" to="#">About</Link>
 			</div>
 		);
 	}
