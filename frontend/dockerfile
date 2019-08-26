@@ -12,6 +12,14 @@ RUN apt-get update && apt-get install -y curl
 
 RUN npm install
 
+# Install sass to convert every single scss file into css -> so the frontend can use it
+RUN npm install -g sass
+
+# The following lines will convert every single scss file into a css file
+RUN sass ./src/App.scss 
+RUN sass ./src/Components/About/About.scss ./src/Components/About/About.css
+RUN sass ./src/Components/Header/Header.scss ./src/Components/Header/Header.css
+
 COPY . .
 
 CMD [ "npm", "start" ]

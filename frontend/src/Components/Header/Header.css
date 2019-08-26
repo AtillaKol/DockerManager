@@ -1,23 +1,23 @@
-
 .headerSection {
-	font-family: Verdana, sans-serif;
-	background-color: black;
-	margin-top: 10px;
-	margin-left: 40px;
-	margin-right: 40px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+  font-family: Verdana, sans-serif;
+  background-color: black;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-.routingLink{
-	color: white;
-	font-size: 20px;
-	text-decoration: none;
-	padding: 10px 15px;
-	cursor: pointer;
+.routingLink {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 15px;
+  cursor: pointer;
 }
-
 .routingLink:hover {
-	background-color: white;
-	color: black;
+  background-color: white;
+  color: black;
 }
+
+/*# sourceMappingURL=Header.css.map */
