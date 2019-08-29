@@ -8,6 +8,7 @@ from containers.containerWithIDJson import containersIDJson
 
 class flaskApplicationRunner:
 	
+	cors = None
 	flaskHost = None
 	flaskPort = None
 	flaskDebugMode = None
@@ -24,6 +25,9 @@ class flaskApplicationRunner:
 		# Creates an instance of API
 		self.api = Api(self.app)
 
+		# CORS problems
+		self.cors = CORS(self.app, resources={r"/*":{"origins":"*"}})
+
 		# Will store the host
 		self.flaskHost = flaskObject.getHost()
 		
@@ -38,4 +42,3 @@ class flaskApplicationRunner:
 		self.api.add_resource(containersSimple, '/container/json')
 		self.api.add_resource(containersIDJson, '/container/<string:ID>/json')
 		self.app.run(host=self.flaskHost, port=self.flaskPort, debug=self.flaskDebugMode)
-		cors = CORS(self.app, resources={r"/*":{"origins":"*"}})
