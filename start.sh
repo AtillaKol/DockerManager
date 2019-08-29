@@ -46,7 +46,7 @@ docker stop $backendContainer && docker stop $frontendContainer
 # Delete the containers
 docker rm $backendContainer && docker rm $frontendContainer
 
-echo "Deleted container"
+echo "Deleted containers backend and frontend"
 
 # Everyting was executed successfully
 exit 0

@@ -1,0 +1,16 @@
+
+@import "../ScssVariabls/_variabls.scss";
+
+.siteTitles {
+	border-bottom: groove;
+	h1 {
+		margin-top: $marginSize;
+		margin-bottom: $marginSize;
+		padding: 0 0 0 20px;
+		font-size: 30px;
+	}
+}
+
+.mainParagraph {
+	line-height: 1.6em;
+}
