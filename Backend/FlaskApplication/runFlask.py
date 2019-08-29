@@ -1,6 +1,7 @@
 
 from flask import Flask
 from flask_restful import Api, Resource
+from flask_cors import CORS
 from configReader.flaskINIReader import flaskConfigReader
 from containers.containerJson import containersSimple
 from containers.containerWithIDJson import containersIDJson
@@ -37,3 +38,4 @@ class flaskApplicationRunner:
 		self.api.add_resource(containersSimple, '/container/json')
 		self.api.add_resource(containersIDJson, '/container/<string:ID>/json')
 		self.app.run(host=self.flaskHost, port=self.flaskPort, debug=self.flaskDebugMode)
+		cors = CORS(self.app, resources={r"/*":{"origins":"*"}})
