@@ -15,7 +15,7 @@ class allContainers extends Component {
 	componentDidMount(){
 		axios.get('http://localhost:5000/container/json?all=1')
 		.then(response => {
-			console.log(response);
+			this.setState({containerInformation:response.data});
 		})
 		.catch(error => {
 			console.log(error);
@@ -31,6 +31,24 @@ class allContainers extends Component {
 				<p className="mainParagraph">
 					Here you can see all containers on your machine.
 				</p>
+				<table className="containerTable">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Names</th>
+							<th>Images</th>
+						</tr>
+					</thead>
+					<tbody>
+						{this.state.containerInformation.map(container => (
+						<tr>
+							<td>{container.Id}</td>
+							<td>{container.Names}</td>
+							<td>{container.Image}</td>
+						</tr>
+						))}
+					</tbody>
+				</table>
 			</div>
 		);
 	}

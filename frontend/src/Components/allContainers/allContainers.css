@@ -12,4 +12,11 @@
   line-height: 1.6em;
 }
 
+.containerTable thead tr th {
+  text-align: left;
+}
+.containerTable tbody tr td {
+  font-size: 10px;
+}
+
 /*# sourceMappingURL=allContainers.css.map */

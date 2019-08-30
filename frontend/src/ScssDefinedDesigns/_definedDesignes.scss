@@ -14,3 +14,20 @@
 .mainParagraph {
 	line-height: 1.6em;
 }
+
+.containerTable {
+	thead {
+		tr {
+			th {
+				text-align: left;
+			}
+		}
+	}
+	tbody {
+		tr {
+			td {
+				font-size: 10px;
+			}
+		}
+	}
+}
