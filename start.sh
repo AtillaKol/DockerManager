@@ -24,13 +24,13 @@ docker info > /dev/null 2>&1
 # Store the exit code from the latest performed command
 exitCode=$?
 
-executingStaps "$exitCode" "Docker läuft. docker-compose build wird gestartet." "Docker läuft nicht. Skript wird abgebrochen. Bitte Docker starten und neu versuchen."
+executingStaps "$exitCode" "Docker is running. docker-compose will start." "Docker is not running. Please start docker and rerun this script."
 
 docker-compose build
 
 exitCode=$?
 
-executingStaps "$exitCode" "docker-compose build erfolgreich ausgeführt. docker-compose up wird gestartet." "Fehler beim Ausführen vom docker-compose build. Bitte Skript erneut laufen lassen."
+executingStaps "$exitCode" "docker-compose build was successful. docker-compose up will start." "Something went wrong while running docker-compose build."
 
 docker-compose up
 
@@ -46,7 +46,7 @@ docker stop $backendContainer && docker stop $frontendContainer
 # Delete the containers
 docker rm $backendContainer && docker rm $frontendContainer
 
-echo "Deleted container"
+echo "Deleted containers backend and frontend"
 
 # Everyting was executed successfully
 exit 0
