@@ -1,0 +1,26 @@
+
+# Base image
+FROM node:10
+
+# Defines /usr/src/app as a place where the application should be "built"
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+# update the packages and install curl into to container -> curl is istalled for testing purpose (you can delete it if wanted)
+RUN apt-get update && apt-get install -y curl
+
+RUN npm install
+
+# Install sass to convert every single scss file into css -> so the frontend can use it
+RUN npm install -g sass
+
+COPY . .
+
+# The following lines will convert every single scss file into a css file
+# RUN sass ./src/App.scss 
+# RUN sass ./src/Components/About/About.scss ./src/Components/About/About.css
+# RUN sass ./src/Components/allContainers/allContainers.scss ./src/Components/allContainers.
+# RUN sass ./src/Components/Header/Header.scss ./src/Components/Header/Header.css
+
+CMD [ "npm", "start" ]

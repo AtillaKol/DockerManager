@@ -1,0 +1,27 @@
+
+@import "../../ScssVariabls/_variabls.scss";
+
+$maringLR: 40px;
+$paddingTB: 10px;
+
+.headerSection {
+	font-family: $standardFont;
+	background-color: black;
+	margin-top: 10px;
+	margin-left: $maringLR;
+	margin-right: $maringLR;
+	padding-top: $paddingTB;
+	padding-bottom: $paddingTB;
+}
+
+.routingLink{
+	color: white;
+	font-size: 20px;
+	text-decoration: none;
+	padding: $paddingTB 15px;
+	cursor: pointer;
+	&:hover {
+		background-color: white;
+		color: black;
+	}
+}

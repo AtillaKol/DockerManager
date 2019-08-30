@@ -11,8 +11,8 @@ services:
     frontend:
         build: ./frontend
         volumes:
-            - ./frontend:/urs/src/app
-            - /usr/src/app/nodes_modules
+            - ./frontend:/usr/src/app
+            - /usr/src/app/node_modules
         ports:
             - 3000:3000
         depends_on:
