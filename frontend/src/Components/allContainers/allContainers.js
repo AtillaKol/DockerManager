@@ -16,6 +16,7 @@ class allContainers extends Component {
 		axios.get('http://localhost:5000/container/json?all=1')
 		.then(response => {
 			this.setState({containerInformation:response.data});
+			console.log(response.data);
 		})
 		.catch(error => {
 			console.log(error);
@@ -37,6 +38,8 @@ class allContainers extends Component {
 							<th>ID</th>
 							<th>Names</th>
 							<th>Images</th>
+							<th>Command</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -45,6 +48,8 @@ class allContainers extends Component {
 							<td>{container.Id}</td>
 							<td>{container.Names}</td>
 							<td>{container.Image}</td>
+							<td>{container.Command}</td>
+							<td>{container.Status}</td>
 						</tr>
 						))}
 					</tbody>
