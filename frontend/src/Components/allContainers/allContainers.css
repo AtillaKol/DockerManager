@@ -12,23 +12,4 @@
   line-height: 1.6em;
 }
 
-.containerTable {
-  border-collapse: collapse;
-  width: 100%;
-}
-.containerTable thead tr th {
-  font-size: 12px;
-  text-align: left;
-  border: 1px black solid;
-  padding: 5px;
-}
-.containerTable tbody tr td {
-  font-size: 12px;
-  border: 1px black solid;
-  padding: 5px;
-}
-.containerTable tbody tr:nth-child(even) {
-  background-color: lightgrey;
-}
-
 /*# sourceMappingURL=allContainers.css.map */
