@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 import axios from 'axios';
-import './allContainers.css';
+import './runningContainers.css';
 
-class allContainers extends Component {
+class runningContainers extends Component {
 
 	constructor(props) {
 		super();
@@ -13,7 +13,7 @@ class allContainers extends Component {
 	}
 
 	componentDidMount(){
-		axios.get('http://localhost:5000/container/json?all=1')
+		axios.get('http://localhost:5000/container/json')
 		.then(response => {
 			this.setState({containerInformation:response.data});
 		})
@@ -26,10 +26,10 @@ class allContainers extends Component {
 		return(
 			<div className="container">
 				<div className="siteTitles">
-					<h1>Running Containers</h1>
+					<h1>All Containers (running and stopped)</h1>
 				</div>
 				<p className="mainParagraph">
-					Here you can view all of your running containers.
+					Here you can see all containers on your machine.
 				</p>
 				<table className="containerTable">
 					<thead>
@@ -58,4 +58,4 @@ class allContainers extends Component {
 	}
 }
 
-export default allContainers;
+export default runningContainers;

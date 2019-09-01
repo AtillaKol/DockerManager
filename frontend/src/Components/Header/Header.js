@@ -10,6 +10,7 @@ class Header extends Component {
 		return(
 			<div className="headerSection">
 				<Link className="routingLink" to="/">All containers</Link>
+				<Link className="routingLink" to="/runningContainers">Running Containers</Link>
 				<Link className="routingLink" to="/about">About</Link>
 			</div>
 		);
