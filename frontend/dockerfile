@@ -20,7 +20,8 @@ COPY . .
 # The following lines will convert every single scss file into a css file
 # RUN sass ./src/App.scss 
 # RUN sass ./src/Components/About/About.scss ./src/Components/About/About.css
-# RUN sass ./src/Components/allContainers/allContainers.scss ./src/Components/allContainers.
+# RUN sass ./src/Components/allContainers/allContainers.scss ./src/Components/allContainers.css
 # RUN sass ./src/Components/Header/Header.scss ./src/Components/Header/Header.css
+# RUN sass ./src/Components/runningContainers/runningContainers.scss ./src/Components/runningContainers/runningContainers.css
 
 CMD [ "npm", "start" ]
