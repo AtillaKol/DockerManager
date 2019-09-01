@@ -4,6 +4,7 @@ import './App.css';
 
 import About from './Components/About/About';
 import allContainers from './Components/allContainers/allContainers';
+import runningContainers from './Components/runningContainers/runningContainers';
 import Header from './Components/Header/Header';
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
       	<div>
       		<Header/>
           <Route exact path="/" component={allContainers}/>
+          <Route path="/runningContainers" component={runningContainers}/>
         	<Route path="/about" component={About}/>
       	</div>
       </Router>

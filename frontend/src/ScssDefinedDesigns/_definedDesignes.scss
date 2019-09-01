@@ -16,17 +16,27 @@
 }
 
 .containerTable {
+	border-collapse: collapse;
+	width: 100%;
 	thead {
 		tr {
 			th {
+				font-size: 12px;
 				text-align: left;
+				border: 1px black solid;
+				padding: 5px;
 			}
 		}
 	}
 	tbody {
 		tr {
 			td {
-				font-size: 10px;
+				font-size: 12px;
+				border: 1px black solid;
+				padding: 10px;
+			}
+			&:nth-child(even){
+				background-color: lightgrey;
 			}
 		}
 	}
