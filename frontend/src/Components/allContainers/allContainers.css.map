@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../ScssDefinedDesigns/_definedDesignes.scss","allContainers.scss"],"names":[],"mappings":"AAGA;EACC;;AACA;EACC,YCLW;EDMX,eCNW;EDOX;EACA;;;AAIF;EACC;;;AAGD;EACC;EACA;;AAGE;EACC;EACA;EACA;EACA;;AAMD;EACC;EACA;EACA;;AAED;EACC","file":"allContainers.css"}
+{"version":3,"sourceRoot":"","sources":["../../ScssDefinedDesigns/_fontStyle.scss","allContainers.scss"],"names":[],"mappings":"AAGA;EACC;;AACA;EACC,YCLW;EDMX,eCNW;EDOX;EACA;;;AAIF;EACC","file":"allContainers.css"}

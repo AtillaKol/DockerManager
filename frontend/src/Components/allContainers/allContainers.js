@@ -1,58 +1,24 @@
 
 import React, { Component } from 'react';
-import axios from 'axios';
+
+import TableForPresentingContainers from '../tableForPresentingContainers/tableForPresentingContainers';
 import './allContainers.css';
 
 class allContainers extends Component {
 
-	constructor(props) {
-		super();
-		this.state = {
-			containerInformation: []
-		};
-	}
-
-	componentDidMount(){
-		axios.get('http://localhost:5000/container/json?all=1')
-		.then(response => {
-			this.setState({containerInformation:response.data});
-		})
-		.catch(error => {
-			console.log(error);
-		})
-	}
-
 	render(){
+
+		const URL = "http://localhost:5000/container/json?all=1";
+
 		return(
 			<div className="container">
 				<div className="siteTitles">
-					<h1>Running Containers</h1>
+					<h1>All Containers</h1>
 				</div>
 				<p className="mainParagraph">
-					Here you can view all of your running containers.
+					Here you can view all of your running and stopped containers.
 				</p>
-				<table className="containerTable">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Names</th>
-							<th>Images</th>
-							<th>Command</th>
-							<th>Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						{this.state.containerInformation.map(container => (
-						<tr>
-							<td>{container.Id}</td>
-							<td>{container.Names}</td>
-							<td>{container.Image}</td>
-							<td>{container.Command}</td>
-							<td>{container.Status}</td>
-						</tr>
-						))}
-					</tbody>
-				</table>
+				<TableForPresentingContainers url={URL}/>
 			</div>
 		);
 	}
