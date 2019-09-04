@@ -13,14 +13,21 @@ class TableForPresentingContainers extends Component {
 		};
 	}
 
+	async getContainers() {
+		console.log("Hallo :)");
+		const RESPONSE = await axios.get(this.props.url);
+		const DATA = await RESPONSE.data;
+		return DATA;
+	}
+
 	componentDidMount() {
-		axios.get(this.props.url)
-		.then(response => {
-			this.setState({containerInformation: response.data});
+		this.getContainers()
+		.then(DATA => {
+			this.setState({containerInformation: DATA});
 		})
-		.catch(error => {
-			console.log(error);
-		})
+		.catch(err => {
+			console.error(err);
+		});
 	}
 
 	render(){
