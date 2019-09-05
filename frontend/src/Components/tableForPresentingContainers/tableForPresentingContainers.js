@@ -14,7 +14,6 @@ class TableForPresentingContainers extends Component {
 	}
 
 	async getContainers() {
-		console.log("Hallo :)");
 		const RESPONSE = await axios.get(this.props.url);
 		const DATA = await RESPONSE.data;
 		return DATA;
@@ -28,6 +27,10 @@ class TableForPresentingContainers extends Component {
 		.catch(err => {
 			console.error(err);
 		});
+	}
+
+	onClick = (e) => {
+		console.log(e);
 	}
 
 	render(){
@@ -50,6 +53,7 @@ class TableForPresentingContainers extends Component {
 						<td>{container.Image}</td>
 						<td>{container.Command}</td>
 						<td>{container.Status}</td>
+						<td><button onClick={this.onClick}>test</button></td>
 					</tr>
 					))}
 				</tbody>
