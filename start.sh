@@ -34,17 +34,11 @@ executingStaps "$exitCode" "docker-compose build was successful. docker-compose 
 
 docker-compose up
 
-# Stores the python container id
-backendContainer=$(docker ps -a -q --filter=ancestor=dockermanager_backend)
-
 # Stores the frontend container id
 frontendContainer=$(docker ps -a -q --filter=ancestor=dockermanager_frontend)
 
-# Stop both containers if needed (does not create an error, so just do it :D)
-docker stop $backendContainer && docker stop $frontendContainer
-
 # Delete the containers
-docker rm $backendContainer && docker rm $frontendContainer
+docker rm $frontendContainer
 
 echo "Deleted containers backend and frontend"
 
