@@ -43,7 +43,7 @@ public class dockerProperties {
     private final Logger LOGGER = LoggerFactory.getLogger(dockerProperties.class);
 
     /**
-     * The Constructor.
+     * The constructor.
      */
     public dockerProperties() {
         try {
