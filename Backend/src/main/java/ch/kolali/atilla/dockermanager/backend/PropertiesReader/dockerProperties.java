@@ -24,7 +24,7 @@ import java.util.ResourceBundle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * This class will read the content of the docker.properties file.
@@ -32,7 +32,7 @@ import org.springframework.stereotype.Component;
  * @author Atilla Kolali
  * @version 1.3
  */
-@Component
+@Service
 @Scope("prototype")
 public class dockerProperties {
 
