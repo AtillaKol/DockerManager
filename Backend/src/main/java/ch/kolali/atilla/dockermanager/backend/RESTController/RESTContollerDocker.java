@@ -24,6 +24,7 @@ import java.util.Map;
 import javax.servlet.ServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -59,6 +60,18 @@ public class RESTContollerDocker {
             return this.controllerDocker.curlDataFromSocket("/containers/json?all=" + builder.toString());
         }
         return this.controllerDocker.curlDataFromSocket("/containers/json");
+    }
+
+    /**
+     * This method will be called at thr route /containers/{id}(json and it will
+     * return information of the container with the containerid of id.
+     *
+     * @param id The ID of the container.
+     * @return A Json with all information of the container.
+     */
+    @GetMapping("/containers/{id}/json")
+    public JsonNode getContainer(@PathVariable("id") String id) {
+        return this.controllerDocker.curlDataFromSocket("/containers/" + id + "/json");
     }
 
 }
