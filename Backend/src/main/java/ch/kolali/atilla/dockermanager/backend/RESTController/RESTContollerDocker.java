@@ -5,10 +5,11 @@
 *
 *
 * Author: Atilla Kolali
-* Version: 1.1
+* Version: 1.2
 *
 * History:
 * Version       Date           Who                Changes
+* 1.2           13.09.2019     Atilla Kolali      Added method getContainer
 * 1.1           13.09.2019     Atilla Kolali      Added method getContainers
 * 1.0           09.09.2019     Atilla Kolali      Created RESTContollerDocker
 *
@@ -31,7 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
  * This class will define all REST-End points for Docker.
  *
  * @author Atilla Kolali
- * @version 1.1
+ * @version 1.2
  */
 @RestController
 public class RESTContollerDocker {
