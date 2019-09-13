@@ -44,7 +44,7 @@ public class RESTContollerDocker {
      * containers.
      *
      * @param req a ServletRequest object for getting the parameters.
-     * @return When added the requestparam all it will return all containers
+     * @return When added the requestparam "all" it will return all containers
      * else it will just return the running containers.
      */
     @GetMapping("/containers/json")
