@@ -37,6 +37,9 @@ docker-compose up
 # Stores the frontend container id
 frontendContainer=$(docker ps -a -q --filter=ancestor=dockermanager_frontend)
 
+# Stop the container to make the deleting work without getting an error.
+docker stop $frontendContainer
+
 # Delete the containers
 docker rm $frontendContainer
 
