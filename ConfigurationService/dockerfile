@@ -1,0 +1,18 @@
+
+FROM python3.7
+
+# Where all the code should be copied.
+WORKDIR /usr/src/app
+
+COPY Requirements/Requirements.txt ./
+
+# Upgrade pip
+RUN pip install --upgrade pip
+
+# Insall all requirements from Requirements.txt
+RUN pip install  --no-cache-dir -r ./Requirements/Requirements.txt
+
+# Copy all files into the WORKDIR diffent above
+COPY . .
+
+CMD [ "python", "main.py" ]
