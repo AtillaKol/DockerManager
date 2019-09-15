@@ -1,7 +1,13 @@
 
 version: "3.7"
 
-services:    
+services:
+    configurationService:
+        build: ./ConfigurationService
+        volumes:
+            - ./ConfigurationService:/usr/src/app
+        ports:
+            - 5000:5000
     frontend:
         build: ./frontend
         volumes:

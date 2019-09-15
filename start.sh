@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Small Script to make life easier
+# Small Script to make life easier.
 
 
-# This small function will always check what exit code the latest perform command has returned
+# This small function will always check what exit code the latest perform command has returned.
 function executingStaps() {
 
 	if [ $1 -eq 0 ]
@@ -11,17 +11,17 @@ function executingStaps() {
 		echo $2
 	else
 		echo $3
-		# When something went wrong kill the whole script 
+		# When something went wrong kill the whole script.
 		exit 1
 	fi
 }
 
 
-# Execute command docker info and pipe everything into /dev/null -> output is not imported
-# The only purpose of this command is to check if docker is running on the host machine
+# Execute command 'docker info' and pipe everything into /dev/null. So the user will not see any errors.
+# The only purpose of this command is to check if docker is running on the host machine.
 docker info > /dev/null 2>&1
 
-# Store the exit code from the latest performed command
+# Store the exit code from the latest performed command (docker info > /dev/null 2>&1).
 exitCode=$?
 
 executingStaps "$exitCode" "Docker is running. docker-compose will start." "Docker is not running. Please start docker and rerun this script."
@@ -34,16 +34,19 @@ executingStaps "$exitCode" "docker-compose build was successful. docker-compose 
 
 docker-compose up
 
-# Stores the frontend container id
+# Stores the configurationService container id.
+configurationService=$(docker ps -a -q --filter=ancestor=dockermanager_configurationService)
+
+# Stores the frontend container id.
 frontendContainer=$(docker ps -a -q --filter=ancestor=dockermanager_frontend)
 
-# Stop the container to make the deleting work without getting an error.
-docker stop $frontendContainer
+# Stop both containers so no error will occur while trying to delete the container.
+docker stop $configurationService $frontendContainer
 
-# Delete the containers
-docker rm $frontendContainer
+# Delete both of the containers.
+docker rm $configurationService $frontendContainer
 
-echo "Deleted containers backend and frontend"
+echo "Deleted containers configurationService and frontend"
 
-# Everyting was executed successfully
+# Everyting was executed successfully.
 exit 0
