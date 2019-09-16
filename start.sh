@@ -35,7 +35,7 @@ executingStaps "$exitCode" "docker-compose build was successful. docker-compose 
 docker-compose up
 
 # Stores the configurationService container id.
-configurationService=$(docker ps -a -q --filter=ancestor=dockermanager_configurationService)
+configurationService=$(docker ps -a -q --filter=ancestor=dockermanager_configurationservice)
 
 # Stores the frontend container id.
 frontendContainer=$(docker ps -a -q --filter=ancestor=dockermanager_frontend)
@@ -46,7 +46,7 @@ docker stop $configurationService $frontendContainer
 # Delete both of the containers.
 docker rm $configurationService $frontendContainer
 
-echo "Deleted containers configurationService and frontend"
+echo "Deleted containers configurationservice and frontend"
 
 # Everyting was executed successfully.
 exit 0

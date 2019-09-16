@@ -5,9 +5,6 @@ import configparser
 # This class will read the data from the ini file.
 class iniReaderClass:
 	
-	hostname = None
-	port = None
-
 	# The Constructor.
 	def __init__(self):
 		# Calls a method from this class.
@@ -20,7 +17,7 @@ class iniReaderClass:
 		pathToCurrentPYFile = os.path.dirname(os.path.abspath(__file__))
 		config = configparser.ConfigParser()
 		# Read the file relativ from where this file is stored.
-		config.read("{}{}".format(config, "../ini-Files.host.ini"))
+		config.read("{}{}".format(pathToCurrentPYFile, "/../ini-Files/host.ini"))
 		self.hostname = config['Host']['hostname']
 		self.port = config['Host']['port']
 
