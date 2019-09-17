@@ -4,13 +4,13 @@ FROM python:3.7
 # Where all the code should be copied.
 WORKDIR /usr/src/app
 
-COPY Requirements/requirements.txt ./Requirements/
+COPY Requirements/Requirements.txt ./Requirements/
 
 # Upgrade pip
 RUN pip install --upgrade pip
 
 # Insall all requirements from Requirements.txt
-RUN pip install  --no-cache-dir -r Requirements/requirements.txt
+RUN pip install  --no-cache-dir -r Requirements/Requirements.txt
 
 # Installs nano inside the container you can delete it if you want to.
 RUN apt-get update && apt-get install nano
