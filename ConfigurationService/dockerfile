@@ -1,0 +1,21 @@
+
+FROM python:3.7
+
+# Where all the code should be copied.
+WORKDIR /usr/src/app
+
+COPY Requirements/requirements.txt ./Requirements/
+
+# Upgrade pip
+RUN pip install --upgrade pip
+
+# Insall all requirements from Requirements.txt
+RUN pip install  --no-cache-dir -r Requirements/requirements.txt
+
+# Installs nano inside the container you can delete it if you want to.
+RUN apt-get update && apt-get install nano
+
+# Copy all files into the WORKDIR diffent above
+COPY . .
+
+CMD [ "python3.7", "./main.py" ]
