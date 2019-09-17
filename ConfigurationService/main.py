@@ -1,6 +1,7 @@
 
 from flask import Flask
 from flask_restful import Api
+from flask_cors import CORS
 from RESTController.restController import restControllerClass
 
 # This is the main class. It will define everything to run the application.
@@ -10,6 +11,7 @@ class mainClass:
 	def __init__(self):
 		self.app = Flask(__name__)
 		api = Api(self.app)
+		CORS(self.app, resources={r"*": {"origins": "*"}})
 		# Call the method initAsClassMethod to create an object of the class Controller.
 		restControllerClass.initAsClassMethod()
 		# Add a Rest-End point.
