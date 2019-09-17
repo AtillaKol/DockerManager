@@ -1,6 +1,6 @@
 
 from iniHandler.iniReader import iniReaderClass
-import json
+from flask import jsonify
 
 # This class will define some methods which will be used by the REST-Controller.
 class controllerClass:
@@ -17,5 +17,5 @@ class controllerClass:
 			"hostname": self.iniReaderObject.getHostname(),
 			"port": self.iniReaderObject.getPort()	
 		}
-		return json.dumps(dictionary)
+		return jsonify(dictionary)
 	
