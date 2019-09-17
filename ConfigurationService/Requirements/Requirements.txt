@@ -2,3 +2,4 @@ configparser2==4.0.0
 requests2==2.16.0
 Flask==1.1.1
 Flask-RESTful==0.3.7
+Flask-Cors==3.0.8
