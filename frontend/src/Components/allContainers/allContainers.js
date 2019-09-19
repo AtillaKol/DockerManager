@@ -1,27 +1,53 @@
 
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import TableForPresentingContainers from '../tableForPresentingContainers/tableForPresentingContainers';
 import './allContainers.css';
 
-class allContainers extends Component {
+class AllContainers extends Component {
+
+	url = "";
+
+	async getDataFromConfigurationService(){
+		const RESPONSE = await axios.get("http://localhost:5000/configurationService");
+		const DATA = await RESPONSE.data;
+		return DATA;
+	}
+
+	componentDidMount(){
+		this.getDataFromConfigurationService()
+		.then(DATA => {
+			this.setState({
+				"host": DATA.hostname,
+				"port": DATA.port
+			});
+		})
+		.catch(ERROR => {
+			console.log(ERROR);
+		});
+	}
 
 	render(){
-
-		const URL = "http://localhost:5000/container/json?all=1";
-
-		return(
-			<div className="container">
-				<div className="siteTitles">
-					<h1>All Containers</h1>
+		if(this.state != null){
+			return(
+				<div className="container">
+					<div className="siteTitles">
+						<h1>All Containers</h1>
+					</div>
+					<p className="mainParagraph">
+						Here you can view all of your running and stopped containers.
+					</p>
+					<TableForPresentingContainers url={URL}/>
 				</div>
-				<p className="mainParagraph">
-					Here you can view all of your running and stopped containers.
-				</p>
-				<TableForPresentingContainers url={URL}/>
+			);
+	} else {
+		return(
+			<div>
+				Fetching data from Configuration service.....
 			</div>
 		);
-	}
+	}}
 }
 
-export default allContainers;
+export default AllContainers;

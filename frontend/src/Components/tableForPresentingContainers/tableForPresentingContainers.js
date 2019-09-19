@@ -29,14 +29,6 @@ class TableForPresentingContainers extends Component {
 		});
 	}
 
-	showData(containerInformation) {
-		this.state.containerInformation.map(container => {
-			if(containerInformation.Id === container.Id) {
-				console.log(containerInformation.Names);
-			}
-		})
-	}
-
 	render(){
 		return(
 			<table className="containerTable">
@@ -57,7 +49,6 @@ class TableForPresentingContainers extends Component {
 						<td>{container.Image}</td>
 						<td>{container.Command}</td>
 						<td>{container.Status}</td>
-						<td><button onClick={() => this.showData(container)}>test</button></td>
 					</tr>
 					))}
 				</tbody>
