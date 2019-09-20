@@ -1,22 +1,20 @@
 
 import React, { Component } from 'react';
-import axios from 'axios';
+import configurationServiceController from '../../Controller/configurationServiceController';
 
 import TableForPresentingContainers from '../tableForPresentingContainers/tableForPresentingContainers';
 import './runningContainers.css';
 
 class RunningContainers extends Component {
 
-	url = "";
-
-	async getDataFromConfigurationService(){
-		const RESPONSE = await axios.get("http://localhost:5000/configurationService");
-		const DATA = await RESPONSE.data;
-		return DATA;
+	constructor(props){
+		super();
+		this.configService = new configurationServiceController();
+		this.url = "";
 	}
 
 	componentDidMount(){
-		this.getDataFromConfigurationService()
+		this.configService.getConfigurationDataFromService()
 		.then(DATA => {
 			this.setState({
 				"host": DATA.hostname,
@@ -25,7 +23,7 @@ class RunningContainers extends Component {
 		})
 		.catch(ERROR => {
 			console.log(ERROR);
-		});
+		})
 	}
 
 	render(){
