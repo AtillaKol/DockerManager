@@ -28,15 +28,16 @@ class RunningContainers extends Component {
 
 	render(){
 		if(this.state != null){
+			this.url = this.configService.buildPathToBackend(this.state.host, this.state.port, "/containers/json");
 			return(
 				<div className="container">
 					<div className="siteTitles">
-						<h1>All Containers (running and stopped)</h1>
+						<h1>Running Containers</h1>
 					</div>
 					<p className="mainParagraph">
-						Here you can see all containers on your machine.
+						Here you can see all containers currently running on the machine.
 					</p>
-					<TableForPresentingContainers url={URL}/>
+					<TableForPresentingContainers url={this.url}/>
 				</div>
 			);
 		} else {

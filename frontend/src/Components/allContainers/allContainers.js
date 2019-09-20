@@ -28,6 +28,7 @@ class AllContainers extends Component {
 
 	render(){
 		if(this.state != null){
+			this.url = this.configService.buildPathToBackend(this.state.host, this.state.port, "/containers/json?all=1");
 			return(
 				<div className="container">
 					<div className="siteTitles">
@@ -36,7 +37,7 @@ class AllContainers extends Component {
 					<p className="mainParagraph">
 						Here you can view all of your running and stopped containers.
 					</p>
-					<TableForPresentingContainers url={URL}/>
+					<TableForPresentingContainers url={this.url}/>
 				</div>
 			);
 		} else {

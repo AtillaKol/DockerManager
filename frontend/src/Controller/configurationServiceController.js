@@ -8,6 +8,10 @@ class configurationServiceController {
 		const DATA = await RESPONSE.data;
 		return DATA;
 	}
+
+	buildPathToBackend(hostname, port, endpoint){
+		return "http://"+hostname+":"+port+endpoint;
+	}
 }
 
 export default configurationServiceController;

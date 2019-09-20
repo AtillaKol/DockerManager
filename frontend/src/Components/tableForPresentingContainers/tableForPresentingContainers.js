@@ -43,7 +43,7 @@ class TableForPresentingContainers extends Component {
 				</thead>
 				<tbody>
 					{this.state.containerInformation.map(container => (
-					<tr>
+					<tr key={container.Id}>
 						<td>{container.Id}</td>
 						<td>{container.Names}</td>
 						<td>{container.Image}</td>
