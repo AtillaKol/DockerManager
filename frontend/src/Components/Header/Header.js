@@ -11,6 +11,7 @@ class Header extends Component {
 			<div className="headerSection">
 				<Link className="routingLink" to="/">All containers</Link>
 				<Link className="routingLink" to="/runningContainers">Running Containers</Link>
+				<Link className="routingLink" to="/configuration">Configuration</Link>
 				<Link className="routingLink" to="/about">About</Link>
 			</div>
 		);
