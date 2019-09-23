@@ -1,9 +1,11 @@
 
 import os
 import configparser
+from iniFileOpener import iniFileReaderOpener
 
 # This class will read the data from the ini file.
-class iniReaderClass:
+# It extends from the class iniFileReaderOpener.
+class iniReaderClass(iniFileReaderOpener):
 	
 	# The Constructor.
 	def __init__(self):
@@ -11,13 +13,10 @@ class iniReaderClass:
 		self.readAndStoreConent()
 
 
-	# This method will read the ini file and store the content in the respective variable.
+	# This method will set the data from the config file into the variabls.
 	def readAndStoreConent(self):
-		# Store the path to this file.
-		pathToCurrentPYFile = os.path.dirname(os.path.abspath(__file__))
-		config = configparser.ConfigParser()
-		# Read the file relativ from where this file is stored.
-		config.read("{}{}".format(pathToCurrentPYFile, "/../ini-Files/host.ini"))
+		# Call parent method.
+		config = super().openAndReadConfigFile()
 		self.hostname = config['Host']['hostname']
 		self.port = config['Host']['port']
 
