@@ -3,7 +3,7 @@ import os
 import configparser
 
 # This class will open the configfile for reading.
-class iniFileReaderOpener:
+class iniFileOpenerClass:
 
 	# This method will open and read the config file and return a object of ConfigParser.
 	# return -> A configparser object.

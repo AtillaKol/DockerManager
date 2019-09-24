@@ -1,11 +1,10 @@
 
-import os
 import configparser
-from iniFileOpener import iniFileReaderOpener
+from .iniFileOpener import iniFileOpenerClass
 
 # This class will read the data from the ini file.
-# It extends from the class iniFileReaderOpener.
-class iniReaderClass(iniFileReaderOpener):
+# It extends from the class iniFileOpenerClass.
+class iniReaderClass(iniFileOpenerClass):
 	
 	# The Constructor.
 	def __init__(self):
@@ -15,7 +14,7 @@ class iniReaderClass(iniFileReaderOpener):
 
 	# This method will set the data from the config file into the variabls.
 	def readAndStoreConent(self):
-		# Call parent method.
+		# Stores the return value in config.
 		config = super().openAndReadConfigFile()
 		self.hostname = config['Host']['hostname']
 		self.port = config['Host']['port']
