@@ -5,12 +5,6 @@ from .iniFileOpener import iniFileOpenerClass
 # This class will read the data from the ini file.
 # It extends from the class iniFileOpenerClass.
 class iniReaderClass(iniFileOpenerClass):
-	
-	# The Constructor.
-	def __init__(self):
-		# Calls a method from this class.
-		self.readAndStoreConent()
-
 
 	# This method will set the data from the config file into the variabls.
 	def readAndStoreConent(self):
@@ -19,13 +13,10 @@ class iniReaderClass(iniFileOpenerClass):
 		self.hostname = config['Host']['hostname']
 		self.port = config['Host']['port']
 
-
-	# This method will return the hostname defined in the host.ini file.
-	# return -> Hostname defined in the host.ini file.
-	def getHostname(self):
-		return self.hostname
-
-	# This method will return the port defined in the host.ini file.
-	# return -> Port defined in the host.ini file.
-	def getPort(self):
-		return self.port
+	# This method will store the data form the ini file inside an array.
+	# return -> Data from ini-file as an array.
+	def returnDataFrominiFile(self):
+		# Call method readAndStoreConent
+		self.readAndStoreConent()
+		data = [self.hostname, self.port]
+		return data
