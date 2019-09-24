@@ -16,9 +16,11 @@ class controllerClass:
 	# This method will build a json which the configuration service can return to the Frontend if requested.
 	# return -> a json-object containing all data from the host.ini-file.
 	def buildJSONObject(self):
+		# Store the data from the method returnDataFrominiFile inside the variable 'data'.
+		data = self.iniReaderObject.returnDataFrominiFile()
 		dictionary = {
-			"hostname": self.iniReaderObject.getHostname(),
-			"port": self.iniReaderObject.getPort()	
+			"hostname": data[0],
+			"port": data[1]
 		}
 		return jsonify(dictionary)
 
