@@ -19,6 +19,13 @@
 				font-size: 12px;
 				border: 1px black solid;
 				padding: 10px;
+				button {
+					background-color: #4CAF50;
+					color: white;
+					padding: 10px 30px;
+					cursor: pointer;
+					font-size: 14px;
+				}
 			}
 			&:nth-child(even){
 				background-color: lightgrey;

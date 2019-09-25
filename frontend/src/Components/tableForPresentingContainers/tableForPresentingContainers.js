@@ -13,14 +13,20 @@ class TableForPresentingContainers extends Component {
 		};
 	}
 
+	async getContainers() {
+		const RESPONSE = await axios.get(this.props.url);
+		const DATA = await RESPONSE.data;
+		return DATA;
+	}
+
 	componentDidMount() {
-		axios.get(this.props.url)
-		.then(response => {
-			this.setState({containerInformation: response.data});
+		this.getContainers()
+		.then(DATA => {
+			this.setState({containerInformation: DATA});
 		})
-		.catch(error => {
-			console.log(error);
-		})
+		.catch(err => {
+			console.error(err);
+		});
 	}
 
 	render(){
@@ -37,7 +43,7 @@ class TableForPresentingContainers extends Component {
 				</thead>
 				<tbody>
 					{this.state.containerInformation.map(container => (
-					<tr>
+					<tr key={container.Id}>
 						<td>{container.Id}</td>
 						<td>{container.Names}</td>
 						<td>{container.Image}</td>

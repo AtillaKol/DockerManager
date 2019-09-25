@@ -2,15 +2,12 @@
 import React, { Component } from 'react';
 import configurationServiceController from '../../Controller/configurationServiceController';
 
-import TableForPresentingContainers from '../tableForPresentingContainers/tableForPresentingContainers';
-import './allContainers.css';
 
-class AllContainers extends Component {
+class Configuration extends Component{
 
-	constructor(props){
+	constructor(props) {
 		super();
-		this.configService = new configurationServiceController()
-		this.url = "";
+		this.configService = new configurationServiceController();
 	}
 
 	componentDidMount(){
@@ -19,7 +16,7 @@ class AllContainers extends Component {
 			this.setState({
 				"host": DATA.hostname,
 				"port": DATA.port
-			});
+			})
 		})
 		.catch(ERROR => {
 			console.log(ERROR);
@@ -28,26 +25,30 @@ class AllContainers extends Component {
 
 	render(){
 		if(this.state != null){
-			this.url = this.configService.buildPathToBackend(this.state.host, this.state.port, "/containers/json?all=1");
 			return(
 				<div className="container">
 					<div className="siteTitles">
-						<h1>All Containers</h1>
+						<h1>Configuration of Backend</h1>
 					</div>
 					<p className="mainParagraph">
-						Here you can view all of your running and stopped containers.
+						On this side you can change the host and the port where the Backend runs.
+						<br/>
+						The currently settings: 
+						<br/>
+						<b>Host:</b> {this.state.host}
+						<br/>
+						<b>Port:</b> {this.state.port}
 					</p>
-					<TableForPresentingContainers url={this.url}/>
 				</div>
-			);
+			)
 		} else {
 			return(
 				<div>
 					Fetching data from Configuration service.....
 				</div>
-			);
+			)
 		}
 	}
 }
 
-export default AllContainers;
+export default Configuration;
