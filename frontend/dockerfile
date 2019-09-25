@@ -23,6 +23,7 @@ COPY . .
 # RUN sass ./src/Components/allContainers/allContainers.scss ./src/Components/allContainers/allContainers.css
 # RUN sass ./src/Components/runningContainers/runningContainers.scss ./src/Components/runningContainers/runningContainers.css 
 # RUN sass ./src/Components/tableForPresentingContainers/tableForPresentingContainers.scss ./src/Components/tableForPresentingContainers/tableForPresentingContainers.css
+# RUN sass ./src/Components/Configuration/Configuration.scss ./src/Components/Configuration/Configuration.css
 # RUN sass ./src/Components/Header/Header.scss ./src/Components/Header/Header.css
 
 CMD [ "npm", "start" ]

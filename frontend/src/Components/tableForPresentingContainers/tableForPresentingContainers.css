@@ -13,6 +13,13 @@
   border: 1px black solid;
   padding: 10px;
 }
+.containerTable tbody tr td button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 30px;
+  cursor: pointer;
+  font-size: 14px;
+}
 .containerTable tbody tr:nth-child(even) {
   background-color: lightgrey;
 }
