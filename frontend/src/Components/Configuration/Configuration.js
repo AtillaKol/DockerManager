@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 import configurationServiceController from '../../Controller/configurationServiceController';
+import './Configuration.css';
 
 
 class Configuration extends Component{
@@ -33,12 +34,15 @@ class Configuration extends Component{
 					<p className="mainParagraph">
 						On this side you can change the host and the port where the Backend runs.
 						<br/>
-						The currently settings: 
+						The current settings: 
 						<br/>
 						<b>Host:</b> {this.state.host}
 						<br/>
 						<b>Port:</b> {this.state.port}
 					</p>
+					<form className="changeConfiguration">
+						hello from form :)
+					</form>
 				</div>
 			)
 		} else {

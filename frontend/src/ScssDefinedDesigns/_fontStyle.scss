@@ -1,6 +1,12 @@
 
 @import "../ScssVariabls/_variabls.scss";
 
+.container {
+	font-family: $standardFont;
+	width: 70%;
+	margin: auto;
+}
+
 .siteTitles {
 	border-bottom: groove;
 	h1 {

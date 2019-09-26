@@ -1,3 +1,9 @@
+.container {
+  font-family: Verdana, sans-serif;
+  width: 70%;
+  margin: auto;
+}
+
 .siteTitles {
   border-bottom: groove;
 }
