@@ -10,5 +10,5 @@ The Frontend can interact with the Configuration Service via REST.
 ## Currently implemented end-points
 /configurationService <br>
 - GET: When performing a get-request on configurationService the service will return the data from the ini-file in a json format. The request does not need any headers or request parameters.
-- PUT: When performing a post-request on configurationService the service will be able to modify the ini-file. The request does not need any headers or request parameters but it needs a request body in following format:<br>
+- PUT: When performing a put-request on configurationService the service will be able to modify the ini-file. The request does not need any headers or request parameters but it needs a request body in following format:<br>
 ```{"hostname": "YOURDATA", "port": "YOURDATA"}```
