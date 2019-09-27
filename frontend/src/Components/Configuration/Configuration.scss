@@ -4,5 +4,15 @@ $marginSize: 10px;
 @import "../../ScssDefinedDesigns/_fontStyle.scss";
 
 .changeConfiguration {
-	
+	input {
+		text-align: center;
+		font-size: 30px;
+		padding: 10px 30px;
+		margin-top: 20px;
+		border-radius: 50px;
+		border: none;
+		&:focus {
+			outline: none;
+		}
+	}
 }

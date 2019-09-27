@@ -40,8 +40,13 @@ class Configuration extends Component{
 						<br/>
 						<b>Port:</b> {this.state.port}
 					</p>
+					<p id="configurationText">
+						On the form below you can change where the backend runs.
+					</p>
 					<form className="changeConfiguration">
-						hello from form :)
+						<input type="text" value="Host"/>
+						<br/>
+						<input type="text" value="Port"/>
 					</form>
 				</div>
 			)

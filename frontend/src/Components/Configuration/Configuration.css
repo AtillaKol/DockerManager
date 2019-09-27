@@ -18,4 +18,16 @@
   line-height: 1.6em;
 }
 
+.changeConfiguration input {
+  text-align: center;
+  font-size: 30px;
+  padding: 10px 30px;
+  margin-top: 20px;
+  border-radius: 50px;
+  border: none;
+}
+.changeConfiguration input:focus {
+  outline: none;
+}
+
 /*# sourceMappingURL=Configuration.css.map */
