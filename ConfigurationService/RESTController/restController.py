@@ -1,6 +1,6 @@
 
 from Controller.Controller import controllerClass
-from flask import request
+from flask import request, Response
 from flask_restful import Resource
 
 # This class will define the get and put methods -> Only two needed because their will not be any other methods.
@@ -22,4 +22,4 @@ class restControllerClass(Resource):
 	# This method will be called as soon as a put request happens and will call the method modifyIniFile from the class controllerObject.
 	def put(self):
 		body = request.get_json()
-		self.controllerObject.modifyIniFile(body)
+		return self.controllerObject.modifyIniFile(body)
