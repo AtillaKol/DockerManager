@@ -6,9 +6,16 @@ import './Configuration.css';
 
 class Configuration extends Component{
 
+
 	constructor(props) {
 		super();
 		this.configService = new configurationServiceController();
+		this.state = {
+			"host":"",
+			"port":"", 
+			"newHost":"",
+			"newPort":"",
+		}
 	}
 
 	componentDidMount(){
@@ -22,6 +29,19 @@ class Configuration extends Component{
 		.catch(ERROR => {
 			console.log(ERROR);
 		});
+	}
+
+	handleChange = (e) => this.setState({
+		[e.target.name]: e.target.value
+	});
+
+	handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(this.state);
+		this.setState({
+			"newHost": "",
+			"newPort": ""
+		})
 	}
 
 	render(){
@@ -43,10 +63,10 @@ class Configuration extends Component{
 					<p id="configurationText">
 						On the form below you can change where the backend runs.
 					</p>
-					<form className="changeConfiguration">
-						<input type="text" value="Host"/>
+					<form className="changeConfiguration" onSubmit={this.handleSubmit}>
+						<input type="text" placeholder="Host" name="newHost" value={this.state.newHost} onChange={this.handleChange}/>
 						<br/>
-						<input type="text" value="Port"/>
+						<input type="text" placeholder="Port" name="newPort" value={this.state.newPort} onChange={this.handleChange}/>
 						<br/>
 						<input type="submit" value="Submit"/>
 					</form>
