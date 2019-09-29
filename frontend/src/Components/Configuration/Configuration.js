@@ -47,6 +47,8 @@ class Configuration extends Component{
 						<input type="text" value="Host"/>
 						<br/>
 						<input type="text" value="Port"/>
+						<br/>
+						<input type="submit" value="Submit"/>
 					</form>
 				</div>
 			)

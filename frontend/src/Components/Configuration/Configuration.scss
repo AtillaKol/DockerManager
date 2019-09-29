@@ -15,4 +15,10 @@ $marginSize: 10px;
 			outline: none;
 		}
 	}
+	input[type=submit] {
+		padding: 10px 15px;
+		font-size: 15px;
+		color: white;
+		background-color: #008CBA;
+	}
 }
