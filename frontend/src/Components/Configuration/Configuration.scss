@@ -2,3 +2,23 @@
 $marginSize: 10px;
 
 @import "../../ScssDefinedDesigns/_fontStyle.scss";
+
+.changeConfiguration {
+	input {
+		text-align: center;
+		font-size: 15px;
+		padding: 15px 15px;
+		margin-top: 20px;
+		border-radius: 50px;
+		border: none;
+		&:focus {
+			outline: none;
+		}
+	}
+	input[type=submit] {
+		padding: 10px 15px;
+		font-size: 15px;
+		color: white;
+		background-color: #008CBA;
+	}
+}

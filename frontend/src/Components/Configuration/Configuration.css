@@ -1,3 +1,9 @@
+.container {
+  font-family: Verdana, sans-serif;
+  width: 70%;
+  margin: auto;
+}
+
 .siteTitles {
   border-bottom: groove;
 }
@@ -10,6 +16,24 @@
 
 .mainParagraph {
   line-height: 1.6em;
+}
+
+.changeConfiguration input {
+  text-align: center;
+  font-size: 15px;
+  padding: 15px 15px;
+  margin-top: 20px;
+  border-radius: 50px;
+  border: none;
+}
+.changeConfiguration input:focus {
+  outline: none;
+}
+.changeConfiguration input[type=submit] {
+  padding: 10px 15px;
+  font-size: 15px;
+  color: white;
+  background-color: #008CBA;
 }
 
 /*# sourceMappingURL=Configuration.css.map */
