@@ -18,6 +18,9 @@ class Configuration extends Component{
 			"port":"", 
 			"newHost":"",
 			"newPort":"",
+			"responseTitle":"",
+			"responseText":"",
+			"clicked": false
 		}
 	}
 
@@ -43,7 +46,7 @@ class Configuration extends Component{
 				port: this.state.newPort
 			}
 		})
-		const DATA = await RESPONSE;
+		const DATA = await RESPONSE.data;
 		return DATA
 	}
 
@@ -55,7 +58,11 @@ class Configuration extends Component{
 		e.preventDefault();
 		this.getRespnseAfterPost()
 		.then(DATA => {
-			console.log(DATA);
+			this.setState({
+				"responseTitle": DATA["Response"][0],
+				"responseText": DATA["Response"][1],
+				"clicked": true
+			})
 		})
 		.catch(ERROR => {
 			console.log(ERROR);
@@ -92,7 +99,7 @@ class Configuration extends Component{
 						<br/>
 						<input type="submit" value="Submit"/>
 					</form>
-					<Response data={this.state}/>
+					{this.state.clicked && <Response data={this.state}/>}
 				</div>
 			)
 		} else {
