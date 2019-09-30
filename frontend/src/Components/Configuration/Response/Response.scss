@@ -1,0 +1,26 @@
+
+@mixin messageToUser($colorOfBackground) {
+	font-size: 20px;
+	background-color: $colorOfBackground;
+	margin-top: 30px;
+	padding: 10px;
+	border-radius: 25px;
+}
+
+
+.NotSet {
+	@include messageToUser(#FFDC00);
+}
+
+.Success {
+	@include messageToUser(#01FF70);
+}
+
+.RangeError {
+	@include messageToUser(#FFDC00);
+}
+
+.Error {
+	@include messageToUser(#FF4136);
+	color: white;
+}
