@@ -37,7 +37,7 @@ class controllerClass:
 		hostname = json['hostname']
 		portnumber = json['port']
 		if (portnumber == "" and hostname == "") or (portnumber == "" or hostname == ""):
-			return {"Response": ["NotSet", "One or both of the variabls are not set."]}, 400
+			return {"Response": ["NotSet", "One or both of the variabls are not set."]}, 200
 		else:
 			try:
 				portnumber = int(portnumber)
@@ -45,7 +45,7 @@ class controllerClass:
 					self.iniWriterObject.changeValuesIniniFile(hostname, str(portnumber))
 					return {"Response": ["Success", "New data is written into the ini-file."]}, 200
 				else:
-					return {"Response": ["RangeError", "The portnumber must be smaller then 65536 and bigger then zero."]}, 400
+					return {"Response": ["RangeError", "The portnumber must be smaller then 65536 and bigger then zero."]}, 200
 			except ValueError:
-				return {"Response": ["Error", "The input of the port is not a number."]}, 400
+				return {"Response": ["Error", "The input of the port is not a number."]}, 200
 		
