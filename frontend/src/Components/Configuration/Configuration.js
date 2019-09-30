@@ -1,5 +1,8 @@
 
 import React, { Component } from 'react';
+import axios from 'axios';
+
+import Response from './Response/Response';
 import configurationServiceController from '../../Controller/configurationServiceController';
 import './Configuration.css';
 
@@ -31,13 +34,32 @@ class Configuration extends Component{
 		});
 	}
 
+	async getRespnseAfterPost(){
+		const RESPONSE = await axios({
+			method: 'put',
+			url: 'http://localhost:5000/configurationService',
+			data: {
+				hostname: this.state.newHost,
+				port: this.state.newPort
+			}
+		})
+		const DATA = await RESPONSE;
+		return DATA
+	}
+
 	handleChange = (e) => this.setState({
 		[e.target.name]: e.target.value
 	});
 
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(this.state);
+		this.getRespnseAfterPost()
+		.then(DATA => {
+			console.log(DATA);
+		})
+		.catch(ERROR => {
+			console.log(ERROR);
+		})
 		this.setState({
 			"newHost": "",
 			"newPort": ""
@@ -70,6 +92,7 @@ class Configuration extends Component{
 						<br/>
 						<input type="submit" value="Submit"/>
 					</form>
+					<Response data={this.state}/>
 				</div>
 			)
 		} else {

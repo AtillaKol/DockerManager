@@ -6,7 +6,7 @@ class Response extends Component {
 	render(){
 		return(
 			<div className="test">
-				Hello from Response
+				{this.props.data.port}
 			</div>
 		)
 	}
