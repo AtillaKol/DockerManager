@@ -5,7 +5,7 @@ import './Response.css';
 class Response extends Component {
 	render(){
 		return(
-			<div className="test">
+			<div className={this.props.data.responseTitle}>
 				{this.props.data.responseText}
 			</div>
 		)
