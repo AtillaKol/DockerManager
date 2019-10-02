@@ -5,10 +5,11 @@
 *
 *
 * Author: Atilla Kolali
-* Version: 1.3
+* Version: 1.5
 *
 * History:
 * Version       Date           Who                Changes
+* 1.5           02.10.2019     Atilla Kolali      Added method returnResponseOfProcessBuilder
 * 1.4           02.10.2019     Atilla Kolali      Renamed curlDataFromSocket to getRequestToSocket
 * 1.3           12.09.2019     Atilla Kolali      Added method curlDataFromSocket
 * 1.2           12.09.2019     Atilla Kolali      Added method convertStringJSONtoJsonNode
@@ -37,7 +38,7 @@ import org.springframework.stereotype.Service;
  * This class will contain the logic for the backend.
  *
  * @author Atilla Kolali
- * @version 1.2
+ * @version 1.5
  */
 @Service
 @Scope("prototype")
@@ -74,6 +75,22 @@ public class ControllerDocker {
         ObjectMapper mapper = new ObjectMapper();
         ProcessBuilder proBuilder = new ProcessBuilder("curl", "--unix-socket", this.dockerSocket, "http://" + this.dockerHost + endpoint);
         try {
+            return this.convertStringJSONtoJsonNode(mapper, this.returnResponseOfProcessBuilder(proBuilder).toString());
+        } catch (IOException e) {
+            this.LOGGER.error("Could not return data from method: " + e.toString());
+        }
+        return null;
+    }
+
+    /**
+     * This method will get a ProcessBuilder and return the output of the
+     * command as a StringBuilder.
+     *
+     * @param proBuilder A ProcessBuilder e.g a command.
+     * @return The output of the command as a StringBuilder.
+     */
+    private StringBuilder returnResponseOfProcessBuilder(ProcessBuilder proBuilder) {
+        try {
             Process pro = proBuilder.start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(pro.getInputStream()));
             StringBuilder builder = new StringBuilder();
@@ -82,9 +99,9 @@ public class ControllerDocker {
                 builder.append(line);
                 builder.append(System.getProperty("line.separator"));
             }
-            return this.convertStringJSONtoJsonNode(mapper, builder.toString());
+            return builder;
         } catch (IOException e) {
-            this.LOGGER.error("Could not start process: " + e.toString());
+            this.LOGGER.error("Something failed in the process: " + e.toString());
         }
         return null;
     }
