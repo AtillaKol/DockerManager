@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import configurationServiceController from '../../Controller/configurationServiceController';
 
-import TableForPresentingContainers from '../tableForPresentingContainers/tableForPresentingContainers';
+import DataFromBackend from '../DataFromBackend/DataFromBackend';
 import './allContainers.css';
 
 class AllContainers extends Component {
@@ -37,7 +37,7 @@ class AllContainers extends Component {
 					<p className="mainParagraph">
 						Here you can view all of your running and stopped containers.
 					</p>
-					<TableForPresentingContainers url={this.url}/>
+					<DataFromBackend url={this.url}/>
 				</div>
 			);
 		} else {

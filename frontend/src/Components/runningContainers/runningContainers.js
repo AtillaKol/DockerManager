@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import configurationServiceController from '../../Controller/configurationServiceController';
 
-import TableForPresentingContainers from '../tableForPresentingContainers/tableForPresentingContainers';
+import DataFromBackend from '../DataFromBackend/DataFromBackend';
 import './runningContainers.css';
 
 class RunningContainers extends Component {
@@ -37,7 +37,7 @@ class RunningContainers extends Component {
 					<p className="mainParagraph">
 						Here you can see all containers currently running on the machine.
 					</p>
-					<TableForPresentingContainers url={this.url}/>
+					<DataFromBackend url={this.url}/>
 				</div>
 			);
 		} else {

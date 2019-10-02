@@ -2,9 +2,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import './tableForPresentingContainers.css';
+import './DataFromBackend.css';
 
-class TableForPresentingContainers extends Component {
+class DataFromBackend extends Component {
 
 	constructor(props) {
 		super();
@@ -69,4 +69,4 @@ class TableForPresentingContainers extends Component {
 
 }
 
-export default TableForPresentingContainers;
+export default DataFromBackend;
