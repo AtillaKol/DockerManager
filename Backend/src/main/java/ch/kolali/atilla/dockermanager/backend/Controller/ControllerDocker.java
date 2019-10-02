@@ -9,6 +9,7 @@
 *
 * History:
 * Version       Date           Who                Changes
+* 1.4           02.10.2019     Atilla Kolali      Renamed curlDataFromSocket to getRequestToSocket
 * 1.3           12.09.2019     Atilla Kolali      Added method curlDataFromSocket
 * 1.2           12.09.2019     Atilla Kolali      Added method convertStringJSONtoJsonNode
 * 1.1           10.09.2019     Atilla Kolali      Added constructor
@@ -69,7 +70,7 @@ public class ControllerDocker {
      * @param endpoint Which endpoint should be used
      * @return A JsonNode-Object with data from the socket
      */
-    public JsonNode curlDataFromSocket(String endpoint) {
+    public JsonNode getRequestToSocket(String endpoint) {
         ObjectMapper mapper = new ObjectMapper();
         ProcessBuilder proBuilder = new ProcessBuilder("curl", "--unix-socket", this.dockerSocket, "http://" + this.dockerHost + endpoint);
         try {

@@ -60,9 +60,9 @@ public class RESTContollerDocker {
             for (String value : requestParameters.get("all")) {
                 builder.append(value);
             }
-            return this.controllerDocker.curlDataFromSocket("/containers/json?all=" + builder.toString());
+            return this.controllerDocker.getRequestToSocket("/containers/json?all=" + builder.toString());
         }
-        return this.controllerDocker.curlDataFromSocket("/containers/json");
+        return this.controllerDocker.getRequestToSocket("/containers/json");
     }
 
     /**
@@ -74,7 +74,7 @@ public class RESTContollerDocker {
      */
     @GetMapping("/containers/{id}/json")
     public JsonNode getContainer(@PathVariable("id") String id) {
-        return this.controllerDocker.curlDataFromSocket("/containers/" + id + "/json");
+        return this.controllerDocker.getRequestToSocket("/containers/" + id + "/json");
     }
 
 }
