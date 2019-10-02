@@ -20,6 +20,7 @@ class restControllerClass(Resource):
 		return self.controllerObject.buildJSONObject()
 
 	# This method will be called as soon as a put request happens and will call the method modifyIniFile from the class controllerObject.
+	# return -> it will return the response from the method modifyIniFile() from the class controllerClass.
 	def put(self):
 		body = request.get_json()
 		return self.controllerObject.modifyIniFile(body)
