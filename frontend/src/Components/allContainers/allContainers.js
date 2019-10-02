@@ -42,7 +42,7 @@ class AllContainers extends Component {
 			);
 		} else {
 			return(
-				<div>
+				<div className="container">
 					Fetching data from Configuration service.....
 				</div>
 			);

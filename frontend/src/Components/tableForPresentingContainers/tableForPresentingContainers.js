@@ -9,7 +9,8 @@ class TableForPresentingContainers extends Component {
 	constructor(props) {
 		super();
 		this.state = {
-			containerInformation: []
+			"containerInformation": [],
+			"error": false
 		};
 	}
 
@@ -25,35 +26,45 @@ class TableForPresentingContainers extends Component {
 			this.setState({containerInformation: DATA});
 		})
 		.catch(err => {
-			console.error(err);
+			this.setState({
+				error: true
+			})
 		});
 	}
 
 	render(){
-		return(
-			<table className="containerTable">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Names</th>
-						<th>Images</th>
-						<th>Command</th>
-						<th>Status</th>
-					</tr>
-				</thead>
-				<tbody>
-					{this.state.containerInformation.map(container => (
-					<tr key={container.Id}>
-						<td>{container.Id}</td>
-						<td>{container.Names}</td>
-						<td>{container.Image}</td>
-						<td>{container.Command}</td>
-						<td>{container.Status}</td>
-					</tr>
-					))}
-				</tbody>
-			</table>
-		);
+		if(this.state.error){
+			return(
+				<div className="errorMessage">
+					<b>Could not fetch data from backend because of an error.</b>
+				</div>
+			)
+		} else {
+			return(
+				<table className="containerTable">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Names</th>
+							<th>Images</th>
+							<th>Command</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						{this.state.containerInformation.map(container => (
+						<tr key={container.Id}>
+							<td>{container.Id}</td>
+							<td>{container.Names}</td>
+							<td>{container.Image}</td>
+							<td>{container.Command}</td>
+							<td>{container.Status}</td>
+						</tr>
+						))}
+					</tbody>
+				</table>
+			);
+		}
 	}
 
 }
