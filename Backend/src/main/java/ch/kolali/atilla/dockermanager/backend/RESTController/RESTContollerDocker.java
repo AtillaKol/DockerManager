@@ -5,10 +5,13 @@
 *
 *
 * Author: Atilla Kolali
-* Version: 1.2
+* Version: 1.5
 *
 * History:
 * Version       Date           Who                Changes
+* 1.5           03.10.2019     Atilla Kolali      Added method restartContainer
+* 1.4           03.10.2019     Atilla Kolali      Added method startContainer
+* 1.3           03.10.2019     Atilla Kolali      Added method stopContainer
 * 1.2           13.09.2019     Atilla Kolali      Added method getContainer
 * 1.1           13.09.2019     Atilla Kolali      Added method getContainers
 * 1.0           09.09.2019     Atilla Kolali      Created RESTContollerDocker
@@ -27,13 +30,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * This class will define all REST-End points for Docker.
  *
  * @author Atilla Kolali
- * @version 1.2
+ * @version 1.5
  */
 @CrossOrigin("*")
 @RestController
@@ -66,8 +70,8 @@ public class RESTContollerDocker {
     }
 
     /**
-     * This method will be called at thr route /containers/{id}(json and it will
-     * return information of the container with the containerid of id.
+     * This method will be called at thr route /containers/{id}/json and it will
+     * return information of the container with the container-id of id.
      *
      * @param id The ID of the container.
      * @return A Json with all information of the container.
@@ -75,6 +79,42 @@ public class RESTContollerDocker {
     @GetMapping("/containers/{id}/json")
     public JsonNode getContainer(@PathVariable("id") String id) {
         return this.controllerDocker.getRequestToSocket("/containers/" + id + "/json");
+    }
+
+    /**
+     * This method will be called at the route /containers/{id}/start and it
+     * will start the container with the container-id of id.
+     *
+     * @param id The ID of the container.
+     * @return A JSON when something went wrong.
+     */
+    @PostMapping("/containers/{id}/start")
+    public JsonNode startContainer(@PathVariable("id") String id) {
+        return this.controllerDocker.postRequestToSocket("/containers/" + id + "/start");
+    }
+
+    /**
+     * This method will be called at the route /containers/{id}/stop and it will
+     * stop the container with the container-id of id.
+     *
+     * @param id The ID of the container.
+     * @return A JSON when something went wrong.
+     */
+    @PostMapping("/containers/{id}/stop")
+    public JsonNode stopContainer(@PathVariable("id") String id) {
+        return this.controllerDocker.postRequestToSocket("/containers/" + id + "/stop");
+    }
+
+    /**
+     * This method will be called at the route /containers/{id}/restart and it
+     * will restart the container with the container-id of id.
+     *
+     * @param id The ID of the container.
+     * @return A JSON when something went wrong.
+     */
+    @PostMapping("/containers/{id}/restart")
+    public JsonNode restartContainer(@PathVariable("id") String id) {
+        return this.controllerDocker.postRequestToSocket("/containers/" + id + "/restart");
     }
 
 }

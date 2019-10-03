@@ -5,10 +5,11 @@
 *
 *
 * Author: Atilla Kolali
-* Version: 1.5
+* Version: 1.6
 *
 * History:
 * Version       Date           Who                Changes
+* 1.6           03.10.2019     Atilla Kolali      Added method postRequestToSocket
 * 1.5           02.10.2019     Atilla Kolali      Added method returnResponseOfProcessBuilder
 * 1.4           02.10.2019     Atilla Kolali      Renamed curlDataFromSocket to getRequestToSocket
 * 1.3           12.09.2019     Atilla Kolali      Added method curlDataFromSocket
@@ -38,7 +39,7 @@ import org.springframework.stereotype.Service;
  * This class will contain the logic for the backend.
  *
  * @author Atilla Kolali
- * @version 1.5
+ * @version 1.6
  */
 @Service
 @Scope("prototype")
@@ -57,7 +58,7 @@ public class ControllerDocker {
     /**
      * The constructor.
      *
-     * @param dockerProp Is needed for injection
+     * @param dockerProp Is needed for injection.
      */
     public ControllerDocker(dockerProperties dockerProp) {
         this.dockerProp = dockerProp;
@@ -66,10 +67,10 @@ public class ControllerDocker {
     }
 
     /**
-     * This method will perform a curl for getting the data from the socket.
+     * This method will perform all GET-Requests to the docker socket.
      *
-     * @param endpoint Which endpoint should be used
-     * @return A JsonNode-Object with data from the socket
+     * @param endpoint Which endpoint should be used.
+     * @return A JsonNode-Object with data from the socket.
      */
     public JsonNode getRequestToSocket(String endpoint) {
         ObjectMapper mapper = new ObjectMapper();
@@ -77,7 +78,24 @@ public class ControllerDocker {
         try {
             return this.convertStringJSONtoJsonNode(mapper, this.returnResponseOfProcessBuilder(proBuilder).toString());
         } catch (IOException e) {
-            this.LOGGER.error("Could not return data from method: " + e.toString());
+            this.LOGGER.error("Could not return data from GET-Request to socket: " + e.toString());
+        }
+        return null;
+    }
+
+    /**
+     * This method will perform all POST-Requests to the docker socket.
+     *
+     * @param endpoint Which endpoint should be used.
+     * @return A JsonNode-Object with data from the socket.
+     */
+    public JsonNode postRequestToSocket(String endpoint) {
+        ObjectMapper mapper = new ObjectMapper();
+        ProcessBuilder proBuilder = new ProcessBuilder("curl", "-X", "POST", "--unix-socket", this.dockerSocket, "http://" + this.dockerHost + endpoint);
+        try {
+            return this.convertStringJSONtoJsonNode(mapper, this.returnResponseOfProcessBuilder(proBuilder).toString());
+        } catch (IOException e) {
+            this.LOGGER.error("Could not return data from POST-Request to socket: " + e.toString());
         }
         return null;
     }
