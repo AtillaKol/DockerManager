@@ -17,12 +17,6 @@ RUN npm install -g sass
 
 COPY . .
 
-# The following lines will convert every single scss file into a css file
-# RUN sass ./src/Components/About/About.scss ./src/Components/About/About.css
-# RUN sass ./src/Components/allContainers/allContainers.scss ./src/Components/allContainers/allContainers.css
-# RUN sass ./src/Components/runningContainers/runningContainers.scss ./src/Components/runningContainers/runningContainers.css 
-# RUN sass ./src/Components/tableForPresentingContainers/tableForPresentingContainers.scss ./src/Components/tableForPresentingContainers/tableForPresentingContainers.css
-# RUN sass ./src/Components/Configuration/Configuration.scss ./src/Components/Configuration/Configuration.css
-# RUN sass ./src/Components/Header/Header.scss ./src/Components/Header/Header.css
+# TODO: Add sass to css converters.
 
 CMD [ "npm", "start" ]
