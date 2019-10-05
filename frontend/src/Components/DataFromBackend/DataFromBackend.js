@@ -54,11 +54,11 @@ class DataFromBackend extends Component {
 					<tbody>
 						{this.state.containerInformation.map(container => (
 						<tr key={container.Id}>
-							<td>{container.Id}</td>
-							<td>{container.Names}</td>
-							<td>{container.Image}</td>
-							<td>{container.Command}</td>
-							<td>{container.Status}</td>
+							<td><span id="containerIdSpan">{container.Id}</span></td>
+							<td><span>{container.Names}</span></td>
+							<td><span>{container.Image}</span></td>
+							<td><span>{container.Command}</span></td>
+							<td><span>{container.Status}</span></td>
 						</tr>
 						))}
 					</tbody>

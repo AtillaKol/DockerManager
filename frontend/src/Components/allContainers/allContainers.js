@@ -35,7 +35,7 @@ class AllContainers extends Component {
 						<h1>All Containers</h1>
 					</div>
 					<p className="mainParagraph">
-						Here you can view all of your running and stopped containers.
+						Here you can view all of your running and stopped containers. If you want to have detailed information from the container, click the on id of the container.
 					</p>
 					<DataFromBackend url={this.url}/>
 				</div>

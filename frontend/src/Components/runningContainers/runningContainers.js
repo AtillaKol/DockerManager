@@ -35,7 +35,7 @@ class RunningContainers extends Component {
 						<h1>Running Containers</h1>
 					</div>
 					<p className="mainParagraph">
-						Here you can see all containers currently running on the machine.
+						Here you can see all containers currently running on the machine. If you want to have detailed information from the container, click the on id of the container.
 					</p>
 					<DataFromBackend url={this.url}/>
 				</div>

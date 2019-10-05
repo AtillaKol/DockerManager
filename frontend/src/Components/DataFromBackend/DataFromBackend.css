@@ -18,7 +18,7 @@
   padding: 5px;
 }
 .containerTable tbody tr td {
-  font-size: 12px;
+  font-size: 10px;
   border: 1px black solid;
   padding: 10px;
 }
@@ -29,8 +29,11 @@
   cursor: pointer;
   font-size: 14px;
 }
+.containerTable tbody tr td #containerIdSpan {
+  cursor: pointer;
+}
 .containerTable tbody tr:nth-child(even) {
   background-color: lightgrey;
 }
 
-/*# sourceMappingURL=tableForPresentingContainers.css.map */
+/*# sourceMappingURL=DataFromBackend.css.map */
