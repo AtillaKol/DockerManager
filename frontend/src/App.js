@@ -4,9 +4,10 @@ import './App.css';
 
 import About from './Components/About/About';
 import AllContainers from './Components/allContainers/allContainers';
-import RunningContainers from './Components/runningContainers/runningContainers';
 import Configuration from './Components/Configuration/Configuration';
+import DetailView from './Components/DetailView/DetailView';
 import Header from './Components/Header/Header';
+import RunningContainers from './Components/runningContainers/runningContainers';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path="/runningContainers" component={RunningContainers}/>
           <Route path="/configuration" component={Configuration}/>
         	<Route path="/about" component={About}/>
+          <Route path="/detailedView" component={DetailView}/>
       	</div>
       </Router>
     );

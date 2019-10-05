@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import './DataFromBackend.css';
@@ -10,7 +11,7 @@ class DataFromBackend extends Component {
 		super();
 		this.state = {
 			"containerInformation": [],
-			"error": false
+			"error": false,
 		};
 	}
 
@@ -31,6 +32,7 @@ class DataFromBackend extends Component {
 			})
 		});
 	}
+
 
 	render(){
 		if(this.state.error){
@@ -54,11 +56,16 @@ class DataFromBackend extends Component {
 					<tbody>
 						{this.state.containerInformation.map(container => (
 						<tr key={container.Id}>
-							<td><span id="containerIdSpan">{container.Id}</span></td>
-							<td><span>{container.Names}</span></td>
-							<td><span>{container.Image}</span></td>
-							<td><span>{container.Command}</span></td>
-							<td><span>{container.Status}</span></td>
+							<td><Link className="detailViewLink" id={container.Id} to={{
+								pathname: "/detailedView",
+								data: {
+									"containerId": container.Id
+								}
+							}}>{container.Id}</Link></td>
+							<td>{container.Names}</td>
+							<td>{container.Image}</td>
+							<td>{container.Command}</td>
+							<td>{container.Status}</td>
 						</tr>
 						))}
 					</tbody>

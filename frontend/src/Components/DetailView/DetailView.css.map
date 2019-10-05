@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../ScssDefinedDesigns/_fontStyle.scss","../../ScssVariabls/_variabls.scss","DetailView.scss"],"names":[],"mappings":"AAGA;EACC,aCHc;EDId;EACA;;;AAGD;EACC;;AACA;EACC,YEZW;EFaX,eEbW;EFcX;EACA;;;AAIF;EACC","file":"DetailView.css"}
+{"version":3,"sourceRoot":"","sources":["../../ScssDefinedDesigns/_fontStyle.scss","../../ScssVariabls/_variabls.scss","DetailView.scss"],"names":[],"mappings":"AAGA;EACC,aCHc;EDId;EACA;;;AAGD;EACC;;AACA;EACC,YEZW;EFaX,eEbW;EFcX;EACA;;;AAIF;EACC;;;AEhBD;EACC;EACA;EACA;EACA;EACA;EACA","file":"DetailView.css"}

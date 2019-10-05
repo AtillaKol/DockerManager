@@ -18,4 +18,13 @@
   line-height: 1.6em;
 }
 
+.errorMessage {
+  font-size: 20px;
+  background-color: #FF4136;
+  margin-top: 30px;
+  padding: 10px;
+  border-radius: 25px;
+  color: white;
+}
+
 /*# sourceMappingURL=DetailView.css.map */
