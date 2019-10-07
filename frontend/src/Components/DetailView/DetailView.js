@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 
 import configurationServiceController from '../../Controller/configurationServiceController';
+import DetailViewContainerOutput from './DetailViewContainerOutput/DetailViewContainerOutput';
 import './DetailView.css'
 
 class DetailView extends Component {
@@ -52,6 +53,7 @@ class DetailView extends Component {
 	render() {
 		if(this.state.Host !== "" && this.state.Port !== ""){
 			if(!this.state.error) {
+				this.url = this.configService.buildPathToBackend(this.state.Host, this.state.Port, "/containers/"+this.state.containerId+"/json")
 				return(
 					<div className="container">
 						<div className="siteTitles">
@@ -61,9 +63,8 @@ class DetailView extends Component {
 							Here you can get a detail view of the container you choose.
 						</p>
 						<div>
-							<h4>Detailed information for container: {this.state.Host}</h4>
-							<p className="containerDetailInformation">
-							</p>
+							<h4>Detailed information for container: {this.state.containerId}</h4>
+							<DetailViewContainerOutput url={this.url}/>
 						</div>
 					</div>
 				);

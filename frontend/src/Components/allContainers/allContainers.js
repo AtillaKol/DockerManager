@@ -9,7 +9,7 @@ class AllContainers extends Component {
 
 	constructor(props){
 		super();
-		this.configService = new configurationServiceController()
+		this.configService = new configurationServiceController();
 		this.url = "";
 	}
 
