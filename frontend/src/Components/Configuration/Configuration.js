@@ -104,8 +104,13 @@ class Configuration extends Component{
 			)
 		} else {
 			return(
-				<div>
-					Fetching data from Configuration service.....
+				<div className="container">
+					<div className="siteTitles">
+						<h1>Configuration of Backend</h1>
+					</div>
+					<p className="mainParagraph">
+						Fetching data from Configuration service.....
+					</p>
 				</div>
 			)
 		}

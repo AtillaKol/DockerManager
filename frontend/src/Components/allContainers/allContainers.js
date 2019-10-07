@@ -43,7 +43,12 @@ class AllContainers extends Component {
 		} else {
 			return(
 				<div className="container">
-					Fetching data from Configuration service.....
+					<div className="siteTitles">
+						<h1>All Containers</h1>
+					</div>
+					<p className="mainParagraph">
+						Fetching data from Configuration service.....
+					</p>
 				</div>
 			);
 		}
