@@ -9,7 +9,7 @@ class DetailViewContainerOutput extends Component{
 	constructor(props) {
 		super();
 		this.state = {
-			containerDetailedInformaion: []
+			containerDetailedInformaion: {}
 		}
 	}
 
@@ -29,11 +29,59 @@ class DetailViewContainerOutput extends Component{
 		})
 	}
 
+	loopThroughArray(arr) {
+		if(arr) {
+			let data = [];
+			if(arr.length <= 1){
+				data.push(arr[0])
+			} else {
+				data.push()
+				for(var i = 0; i < arr.length;i++){
+					data.push(<li key={i} className="list">{arr[i]}</li>);
+				}
+			}
+			return data
+		}
+	}
+
+	avoidUndefinedOfNestedObject(...args) {
+		if(this.state.containerDetailedInformaion[args[0]]) {
+			return this.state.containerDetailedInformaion[args[0]][args[1]];
+		}
+	}
+
 	render() {
 		return(
 			<div className="dataFromAPI">
 				<div className="dataDiv">
 					<b className="titleForElement">AppArmorProfile</b>: {this.state.containerDetailedInformaion["AppArmorProfile"]}
+				</div>
+				<div className="dataDiv">
+					<b className="titleForElement">Args</b>: {this.loopThroughArray(this.state.containerDetailedInformaion["Args"])}
+				</div>
+				<div className="dataDiv">
+					<b className="titleForElement">Config</b>
+					<div className="innerContent">
+						<b className="titleForElement">AttachStderr</b>: {this.avoidUndefinedOfNestedObject("Config","AttachStderr")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">AttachStdin</b>: {this.avoidUndefinedOfNestedObject("Config", "AttachStdin")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">AttachStdout</b>: {this.avoidUndefinedOfNestedObject("Config", "AttachStdout")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">CMD</b>: {this.loopThroughArray(this.avoidUndefinedOfNestedObject("Config", "Cmd"))}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Domainname</b>: {this.avoidUndefinedOfNestedObject("Config", "Domainname")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Entrypoint</b>: {this.avoidUndefinedOfNestedObject("Config", "Entrypoint")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Env</b>: {this.loopThroughArray(this.avoidUndefinedOfNestedObject("Config", "Env"))}
+					</div>
 				</div>
 				<div className="dataDiv">
 					<b className="titleForElement">Created</b>: {this.state.containerDetailedInformaion["Created"]}
