@@ -8,41 +8,44 @@
 	color: white;
 }
 
-.containerTable {
-	border-collapse: collapse;
-	width: 100%;
-	thead {
-		-webkit-user-select: none;
-		tr {
-			th {
-				font-size: 12px;
-				text-align: left;
-				border: 1px black solid;
-				padding: 5px;
+.divForTable {
+	overflow-x: auto;
+	.containerTable { 
+		border-collapse: collapse;
+		width: 100%;
+		thead {
+			-webkit-user-select: none;
+			tr {
+				th {
+					font-size: 12px;
+					text-align: left;
+					border: 0.5px black solid;
+					padding: 5px;
+				}
 			}
 		}
-	}
-	tbody {
-		tr {
-			td {
-				font-size: 10px;
-				border: 1px black solid;
-				padding: 10px;
-				button {
-					background-color: #4CAF50;
-					color: white;
-					padding: 10px 30px;
-					cursor: pointer;
-					font-size: 14px;
+		tbody {
+			tr {
+				td {
+					font-size: 10px;
+					border: 1px black solid;
+					padding: 10px;
+					button {
+						background-color: #4CAF50;
+						color: white;
+						padding: 10px 30px;
+						cursor: pointer;
+						font-size: 14px;
+					}
+					.detailViewLink {
+						text-decoration: none;
+						cursor: pointer;
+						color: black;
+					}
 				}
-				.detailViewLink {
-					text-decoration: none;
-					cursor: pointer;
-					color: black;
+				&:nth-child(even){
+					background-color: lightgrey;
 				}
-			}
-			&:nth-child(even){
-				background-color: lightgrey;
 			}
 		}
 	}

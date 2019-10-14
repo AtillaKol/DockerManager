@@ -27,4 +27,8 @@
   color: white;
 }
 
+.containerDetailInformationOutput h4 {
+  overflow-wrap: break-word;
+}
+
 /*# sourceMappingURL=DetailView.css.map */

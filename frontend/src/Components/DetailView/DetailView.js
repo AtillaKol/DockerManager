@@ -62,7 +62,7 @@ class DetailView extends Component {
 						<p className="mainParagraph">
 							Here you can get a detail view of the container you choose.
 						</p>
-						<div>
+						<div className="containerDetailInformationOutput">
 							<h4>Detailed information for container: {this.state.containerId}</h4>
 							<DetailViewContainerOutput url={this.url}/>
 						</div>

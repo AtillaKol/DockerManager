@@ -10,3 +10,9 @@ $marginSize: 10px;
 	border-radius: 25px;
 	color: white;
 }
+
+.containerDetailInformationOutput {
+	h4 {
+		overflow-wrap: break-word;
+	}
+}

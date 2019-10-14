@@ -7,37 +7,40 @@
   color: white;
 }
 
-.containerTable {
+.divForTable {
+  overflow-x: auto;
+}
+.divForTable .containerTable {
   border-collapse: collapse;
   width: 100%;
 }
-.containerTable thead {
+.divForTable .containerTable thead {
   -webkit-user-select: none;
 }
-.containerTable thead tr th {
+.divForTable .containerTable thead tr th {
   font-size: 12px;
   text-align: left;
-  border: 1px black solid;
+  border: 0.5px black solid;
   padding: 5px;
 }
-.containerTable tbody tr td {
+.divForTable .containerTable tbody tr td {
   font-size: 10px;
   border: 1px black solid;
   padding: 10px;
 }
-.containerTable tbody tr td button {
+.divForTable .containerTable tbody tr td button {
   background-color: #4CAF50;
   color: white;
   padding: 10px 30px;
   cursor: pointer;
   font-size: 14px;
 }
-.containerTable tbody tr td .detailViewLink {
+.divForTable .containerTable tbody tr td .detailViewLink {
   text-decoration: none;
   cursor: pointer;
   color: black;
 }
-.containerTable tbody tr:nth-child(even) {
+.divForTable .containerTable tbody tr:nth-child(even) {
   background-color: lightgrey;
 }
 

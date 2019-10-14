@@ -43,33 +43,35 @@ class DataFromBackend extends Component {
 			)
 		} else {
 			return(
-				<table className="containerTable">
-					<thead>
-						<tr>
-							<th>ID</th>
-							<th>Names</th>
-							<th>Images</th>
-							<th>Command</th>
-							<th>Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						{this.state.containerInformation.map(container => (
-						<tr key={container.Id}>
-							<td><Link className="detailViewLink" id={container.Id} to={{
-								pathname: "/detailedView",
-								data: {
-									"containerId": container.Id
-								}
-							}}>{container.Id}</Link></td>
-							<td>{container.Names}</td>
-							<td>{container.Image}</td>
-							<td>{container.Command}</td>
-							<td>{container.Status}</td>
-						</tr>
-						))}
-					</tbody>
-				</table>
+				<div className="divForTable">
+					<table className="containerTable">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Names</th>
+								<th>Images</th>
+								<th>Command</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							{this.state.containerInformation.map(container => (
+							<tr key={container.Id}>
+								<td><Link className="detailViewLink" id={container.Id} to={{
+									pathname: "/detailedView",
+									data: {
+										"containerId": container.Id
+									}
+								}}>{container.Id}</Link></td>
+								<td>{container.Names}</td>
+								<td>{container.Image}</td>
+								<td>{container.Command}</td>
+								<td>{container.Status}</td>
+							</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
 			);
 		}
 	}
