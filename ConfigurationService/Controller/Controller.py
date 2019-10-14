@@ -27,7 +27,7 @@ class controllerClass:
 	# This method call the method for modiyfing the data inside the ini.fi
 	# param json -> The data from the Frontend as json.
 	'''
-	return -> This method as four differnt return values.
+	return -> This method has four differnt return values.
 		NotSet -> When one or both variabls are not set.
 		Success -> When the port value is acceptable.
 		RangeError -> When the port number is bigger then 65536 or smaller then zero.
