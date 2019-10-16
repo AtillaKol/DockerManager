@@ -29,18 +29,35 @@ class DetailViewContainerOutput extends Component{
 		})
 	}
 
+	loopThroughArrayContaingObjects(arr) {
+		if(arr) {
+			let data = [];
+			if(arr.length <= 1) {
+				data.push(this.loopThroughObject(arr[0]));
+			} else {
+				for(var i = 0; i < arr.length; i++) {
+					data.push(
+						<div className="arrayOfObjects" key={i}>
+							<h4>{i}</h4>
+							{this.loopThroughObject(arr[i])}
+						</div>);
+				}
+			}
+			return data;
+		}
+	}
+
 	loopThroughArray(arr) {
 		if(arr) {
 			let data = [];
 			if(arr.length <= 1) {
 				data.push(arr[0])
 			} else {
-				data.push()
-				for(var i = 0; i < arr.length;i++) {
+				for(var i = 0; i < arr.length; i++) {
 					data.push(<li key={i} className="list">{arr[i]}</li>);
 				}
 			}
-			return data
+			return data;
 		}
 	}
 
@@ -54,14 +71,14 @@ class DetailViewContainerOutput extends Component{
 					data.push(<li key={objElement} className="list"><b>{objElement}</b>: {obj[objElement]}</li>)
 				}
 			}
-			return data
+			return data;
 		}
 	}
 
 	returnDataFromNestedObject(...args) {	
 		if(this.state.containerDetailedInformaion[args[0]]) {
 			if(args.length <= 2) {
-				return this.state.containerDetailedInformaion[args[0]][args[1]]
+				return this.state.containerDetailedInformaion[args[0]][args[1]];
 			}
 		}
 	}
@@ -186,7 +203,139 @@ class DetailViewContainerOutput extends Component{
 						<b className="titleForElement">ConsoleSize</b>: {this.loopThroughArray(this.returnDataFromNestedObject("HostConfig", "ConsoleSize"))}
 					</div>
 					<div className="innerContent">
-						
+						<b className="titleForElement">ContainerIDFile</b>: {this.returnDataFromNestedObject("HostConfig", "ContainerIDFile")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">CpuCount</b>: {this.returnDataFromNestedObject("HostConfig", "CpuCount")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">CpuPercent</b>: {this.returnDataFromNestedObject("HostConfig", "CpuPercent")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">CpuPeriod</b>: {this.returnDataFromNestedObject("HostConfig", "CpuPeriod")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">CpuQuota</b>: {this.returnDataFromNestedObject("HostConfig", "CpuQuota")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">CpuRealtimePeriod</b>: {this.returnDataFromNestedObject("HostConfig", "CpuRealtimePeriod")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">CpuRealtimeRuntime</b>: {this.returnDataFromNestedObject("HostConfig", "CpuRealtimeRuntime")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">CpuShares</b>: {this.returnDataFromNestedObject("HostConfig", "CpuShares")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">CpusetCpus</b>: {this.returnDataFromNestedObject("HostConfig", "CpusetCpus")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">CpusetMems</b>: {this.returnDataFromNestedObject("HostConfig", "CpusetMems")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Dns</b>: {this.loopThroughArray(this.returnDataFromNestedObject("HostConfig", "Dns"))}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">DnsOptions</b>: {this.loopThroughArray(this.returnDataFromNestedObject("HostConfig", "DnsOptions"))}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">DnsSearch</b>: {this.loopThroughArray(this.returnDataFromNestedObject("HostConfig", "DnsSearch"))}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">GroupAdd</b>: {this.loopThroughArray(this.returnDataFromNestedObject("HostConfig", "GroupAdd"))}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">IOMaximumBandwidth</b>: {this.returnDataFromNestedObject("HostConfig", "IOMaximumBandwidth")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">IOMaximumIOps</b>: {this.returnDataFromNestedObject("HostConfig", "IOMaximumIOps")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">IpcMode</b>: {this.returnDataFromNestedObject("HostConfig", "IpcMode")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Isolation</b>: {this.returnDataFromNestedObject("HostConfig", "Isolation")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">KernelMemory</b>: {this.returnDataFromNestedObject("HostConfig", "KernelMemory")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">KernelMemoryTCP</b>: {this.returnDataFromNestedObject("HostConfig", "KernelMemoryTCP")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Links</b>: {this.loopThroughArray(this.returnDataFromNestedObject("HostConfig", "Links"))}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">MaskedPaths</b>: {this.loopThroughArray(this.returnDataFromNestedObject("HostConfig", "MaskedPaths"))}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Memory</b>: {this.returnDataFromNestedObject("HostConfig", "Memory")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">MemoryReservation</b>: {this.returnDataFromNestedObject("HostConfig", "MemoryReservation")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">MemorySwap</b>: {this.returnDataFromNestedObject("HostConfig", "MemorySwap")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">MemorySwappiness</b>: {this.returnDataFromNestedObject("HostConfig", "MemorySwappiness")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">NanoCpus</b>: {this.returnDataFromNestedObject("HostConfig", "NanoCpus")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">NetworkMode</b>: {this.returnDataFromNestedObject("HostConfig", "NetworkMode")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">OomKillDisable</b>: {this.returnDataFromNestedObject("HostConfig", "OomKillDisable")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">OomScoreAdj</b>: {this.returnDataFromNestedObject("HostConfig", "OomScoreAdj")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">PidMode</b>: {this.returnDataFromNestedObject("HostConfig", "PidMode")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">PidsLimit</b>: {this.returnDataFromNestedObject("HostConfig", "PidsLimit")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Privileged</b>: {this.returnDataFromNestedObject("HostConfig", "Privileged")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">PublishAllPorts</b>: {this.returnDataFromNestedObject("HostConfig", "PublishAllPorts")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">ReadonlyPaths</b>: {this.loopThroughArray(this.returnDataFromNestedObject("HostConfig", "ReadonlyPaths"))}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">ReadonlyRootfs</b>: {this.returnDataFromNestedObject("HostConfig", "ReadonlyRootfs")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">RestartPolicy</b>: {this.loopThroughObject(this.returnDataFromNestedObject("HostConfig", "RestartPolicy"))}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Runtime</b>: {this.returnDataFromNestedObject("HostConfig", "Runtime")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">SecurityOpt</b>: {this.loopThroughArray(this.returnDataFromNestedObject("HostConfig", "SecurityOpt"))}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">ShmSize</b>: {this.returnDataFromNestedObject("HostConfig", "ShmSize")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">UTSMode</b>: {this.returnDataFromNestedObject("HostConfig", "UTSMode")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Ulimits</b>: {this.loopThroughArrayContaingObjects(this.returnDataFromNestedObject("HostConfig", "Ulimits"))}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">UsernsMode</b>: {this.returnDataFromNestedObject("HostConfig", "UsernsMode")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">VolumeDriver</b>: {this.returnDataFromNestedObject("HostConfig", "VolumeDriver")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">VolumesFrom</b>: {this.loopThroughArray(this.returnDataFromNestedObject("HostConfig", "VolumesFrom"))}
 					</div>
 				</div>
 				<div className="dataDiv">
@@ -208,7 +357,55 @@ class DetailViewContainerOutput extends Component{
 					<b className="titleForElement">MountLabel</b>: {this.state.containerDetailedInformaion["MountLabel"]}
 				</div>
 				<div className="dataDiv">
+					<b className="titleForElement">Mounts</b>: {this.loopThroughArrayContaingObjects(this.state.containerDetailedInformaion["Mounts"])}
+				</div>
+				<div className="dataDiv">
 					<b className="titleForElement">Name</b>: {this.state.containerDetailedInformaion["Name"]}
+				</div>
+				<div className="dataDiv">
+					<b className="titleForElement">NetworkSettings</b>
+					<div className="innerContent">
+						<b className="titleForElement">Bridge</b>: {this.returnDataFromNestedObject("NetworkSettings", "Bridge")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">EndpointID</b>: {this.returnDataFromNestedObject("NetworkSettings", "EndpointID")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Gateway</b>: {this.returnDataFromNestedObject("NetworkSettings", "Gateway")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">GlobalIPv6Address</b>: {this.returnDataFromNestedObject("NetworkSettings", "GlobalIPv6Address")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">GlobalIPv6PrefixLen</b>: {this.returnDataFromNestedObject("NetworkSettings", "GlobalIPv6PrefixLen")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">HairpinMode</b>: {this.returnDataFromNestedObject("NetworkSettings", "HairpinMode")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">IPAddress</b>: {this.returnDataFromNestedObject("NetworkSettings", "IPAddress")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">IPPrefixLen</b>: {this.returnDataFromNestedObject("NetworkSettings", "IPPrefixLen")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">IPv6Gateway</b>: {this.returnDataFromNestedObject("NetworkSettings", "IPv6Gateway")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">LinkLocalIPv6Address</b>: {this.returnDataFromNestedObject("NetworkSettings", "LinkLocalIPv6Address")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">LinkLocalIPv6PrefixLen</b>: {this.returnDataFromNestedObject("NetworkSettings", "LinkLocalIPv6PrefixLen")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">MacAddress</b>: {this.returnDataFromNestedObject("NetworkSettings", "MacAddress")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">SandboxID</b>: {this.returnDataFromNestedObject("NetworkSettings", "SandboxID")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">SandboxKey</b>: {this.returnDataFromNestedObject("NetworkSettings", "SandboxKey")}
+					</div>
 				</div>
 				<div className="dataDiv">
 					<b className="titleForElement">Path</b>: {this.state.containerDetailedInformaion["Path"]}
@@ -224,6 +421,42 @@ class DetailViewContainerOutput extends Component{
 				</div>
 				<div className="dataDiv">
 					<b className="titleForElement">RestartCount</b>: {this.state.containerDetailedInformaion["RestartCount"]}
+				</div>
+				<div className="dataDiv">
+					<b className="titleForElement">State</b>:
+					<div className="innerContent">
+						<b className="titleForElement">Dead</b>: {this.returnDataFromNestedObject("State", "Dead")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Error</b>: {this.returnDataFromNestedObject("State", "Error")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">ExitCode</b>: {this.returnDataFromNestedObject("State", "ExitCode")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">FinishedAt</b>: {this.returnDataFromNestedObject("State", "FinishedAt")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">OOMKilled</b>: {this.returnDataFromNestedObject("State", "OOMKilled")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Paused</b>: {this.returnDataFromNestedObject("State", "Paused")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Pid</b>: {this.returnDataFromNestedObject("State", "Pid")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Restarting</b>: {this.returnDataFromNestedObject("State", "Restarting")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Running</b>: {this.returnDataFromNestedObject("State", "Running")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">StartedAt</b>: {this.returnDataFromNestedObject("State", "StartedAt")}
+					</div>
+					<div className="innerContent">
+						<b className="titleForElement">Status</b>: {this.returnDataFromNestedObject("State", "Status")}
+					</div>
 				</div>
 			</div>
 		)
