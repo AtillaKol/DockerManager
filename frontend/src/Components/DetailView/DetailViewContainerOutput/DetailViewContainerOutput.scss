@@ -1,4 +1,13 @@
 
+@mixin buttonDesign($colorOfButton) {
+	padding: 10px 15px;
+	font-size: 15px;
+	border-radius: 10px;
+	color: white;
+	background-color: $colorOfButton;
+	cursor: pointer;
+}
+
 .arrayOfObjects {
 	h4 {
 		margin-bottom: 10px;
@@ -10,17 +19,29 @@
 	margin-left: 25px;
 }
 
-.dataDiv{
-	font-size: 15px;
-	overflow-wrap: break-word;
-	margin-bottom: 20px;
-	padding: 5px 10px;
-	border-style: solid;
-	border-width: 1px;
+.dataFromAPI{
 
-	.innerContent {
-		display: block;
-		margin-left: 10px;
-		margin-top: 10px;
+	.dataDiv {
+		font-size: 15px;
+		overflow-wrap: break-word;
+		margin-bottom: 20px;
+		padding: 5px 10px;
+		border-style: solid;
+		border-width: 1px;
+
+		.innerContent {
+			display: block;
+			margin-left: 10px;
+			margin-top: 10px;
+		}
+	}
+
+	.buttonSelections {
+		margin-top: 30px;
+		margin-bottom: 20px;
+
+		#startButton {
+			@include buttonDesign(#4CAF50);
+		}
 	}
 }

@@ -86,6 +86,14 @@ class DetailViewContainerOutput extends Component{
 	render() {
 		return(
 			<div className="dataFromAPI">
+				<div className="buttonSelections">
+					<button id="startButton">Start</button>
+					<button id="stopButton">Stop</button>
+					<button id="restartButton">Restart</button>
+					<button id="killButton">Kill</button>
+					<button id="pauseButton">Pause</button>
+					<button id="unpauseButton">Unpause</button>
+				</div>
 				<div className="dataDiv">
 					<b className="titleForElement">AppArmorProfile</b>: {this.state.containerDetailedInformaion["AppArmorProfile"]}
 				</div>
