@@ -22,8 +22,9 @@
 .dataFromAPI .buttonSelections {
   margin-top: 30px;
   margin-bottom: 20px;
-  button: hover;
-  button-opacity: 1;
+}
+.dataFromAPI .buttonSelections .buttons:hover {
+  opacity: 1;
 }
 .dataFromAPI .buttonSelections #startButton {
   margin-right: 10px;
@@ -36,6 +37,19 @@
   border: none;
   outline: none;
 }
+.dataFromAPI .buttonSelections #startButtonDisabled {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: white;
+  background-color: #4CAF50;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 .dataFromAPI .buttonSelections #stopButton {
   margin-right: 10px;
   padding: 10px 15px;
@@ -46,6 +60,19 @@
   cursor: pointer;
   border: none;
   outline: none;
+}
+.dataFromAPI .buttonSelections #stopButtonDisabled {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: white;
+  background-color: #f44336;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 .dataFromAPI .buttonSelections #restartButton {
   margin-right: 10px;
@@ -58,6 +85,19 @@
   border: none;
   outline: none;
 }
+.dataFromAPI .buttonSelections #restartButtonDisabled {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: black;
+  background-color: #FFDC00;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 .dataFromAPI .buttonSelections #killButton {
   margin-right: 10px;
   padding: 10px 15px;
@@ -68,6 +108,19 @@
   cursor: pointer;
   border: none;
   outline: none;
+}
+.dataFromAPI .buttonSelections #killButtonDisabled {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: white;
+  background-color: #f44336;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 .dataFromAPI .buttonSelections #pauseButton {
   margin-right: 10px;
@@ -80,6 +133,19 @@
   border: none;
   outline: none;
 }
+.dataFromAPI .buttonSelections #pauseButtonDisabled {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: black;
+  background-color: #FFDC00;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 .dataFromAPI .buttonSelections #unpauseButton {
   margin-right: 10px;
   padding: 10px 15px;
@@ -90,6 +156,19 @@
   cursor: pointer;
   border: none;
   outline: none;
+}
+.dataFromAPI .buttonSelections #unpauseButtonDisabled {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: white;
+  background-color: #4CAF50;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /*# sourceMappingURL=DetailViewContainerOutput.css.map */

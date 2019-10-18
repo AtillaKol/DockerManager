@@ -1,5 +1,5 @@
 
-@mixin buttonDesign($colorOfButton, $colorOfText) {
+@mixin buttonDesign($colorOfButton, $colorOfText, $disabled: false) {
 	margin-right: 10px;
 	padding: 10px 15px;
 	font-size: 15px;
@@ -9,6 +9,10 @@
 	cursor: pointer;
 	border: none;
 	outline: none;
+	@if $disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
 }
 
 .arrayOfObjects {
@@ -42,7 +46,7 @@
 		margin-top: 30px;
 		margin-bottom: 20px;
 
-		button: hover {
+		.buttons:hover {
 			opacity: 1;
 		}
 
@@ -50,24 +54,49 @@
 			@include buttonDesign(#4CAF50, white);
 		}
 
+		#startButtonDisabled {
+			@include buttonDesign(#4CAF50, white, true);
+		}
+
 		#stopButton {
 			@include buttonDesign(#f44336, white);
+		}
+
+		#stopButtonDisabled {
+			@include buttonDesign(#f44336, white, true);	
 		}
 
 		#restartButton {
 			@include buttonDesign(#FFDC00, black);
 		}
 
+		#restartButtonDisabled {
+			@include buttonDesign(#FFDC00, black, true);
+		}
+
 		#killButton {
 			@include buttonDesign(#f44336, white);
+		}
+
+		#killButtonDisabled {
+			@include buttonDesign(#f44336, white, true);
 		}
 
 		#pauseButton {
 			@include buttonDesign(#FFDC00, black);
 		}
 
+		#pauseButtonDisabled {
+			@include buttonDesign(#FFDC00, black, true);	
+		}
+
 		#unpauseButton {
 			@include buttonDesign(#4CAF50, white);
 		}
+
+		#unpauseButtonDisabled {
+			@include buttonDesign(#4CAF50, white, true);	
+		}
+
 	}
 }

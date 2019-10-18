@@ -83,17 +83,28 @@ class DetailViewContainerOutput extends Component{
 		}
 	}
 
+	interactionButtons(){
+		if(this.returnDataFromNestedObject("State", "Running")) {
+			return (
+				<div className="buttonSelections">
+					<button id="startButtonDisabled">Start</button>
+					<button id="stopButton">Stop</button>
+				</div>
+			)
+		} else if(!this.returnDataFromNestedObject("State", "Running")) {
+			return (
+				<div className="buttonSelections">
+					<button id="startButton">Start</button>
+					<button id="stopButtonDisabled">Stop</button>
+				</div>
+			)
+		}
+	}
+
 	render() {
 		return(
 			<div className="dataFromAPI">
-				<div className="buttonSelections">
-					<button id="startButton">Start</button>
-					<button id="stopButton">Stop</button>
-					<button id="restartButton">Restart</button>
-					<button id="killButton">Kill</button>
-					<button id="pauseButton">Pause</button>
-					<button id="unpauseButton">Unpause</button>
-				</div>
+				{this.interactionButtons()}
 				<div className="dataDiv">
 					<b className="titleForElement">AppArmorProfile</b>: {this.state.containerDetailedInformaion["AppArmorProfile"]}
 				</div>
