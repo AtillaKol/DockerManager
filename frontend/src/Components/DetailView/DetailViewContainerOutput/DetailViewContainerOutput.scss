@@ -91,11 +91,11 @@
 		}
 
 		#unpauseButton {
-			@include buttonDesign(#4CAF50, white);
+			@include buttonDesign(#FFDC00, black);
 		}
 
 		#unpauseButtonDisabled {
-			@include buttonDesign(#4CAF50, white, true);	
+			@include buttonDesign(#FFDC00, black, true);	
 		}
 
 	}
