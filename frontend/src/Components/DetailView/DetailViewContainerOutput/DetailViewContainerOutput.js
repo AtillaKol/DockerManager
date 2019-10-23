@@ -84,26 +84,39 @@ class DetailViewContainerOutput extends Component{
 	}
 
 	interactionButtons(){
-		if(this.returnDataFromNestedObject("State", "Running")) {
-			return (
+		if(this.returnDataFromNestedObject("State", "Running") && this.returnDataFromNestedObject("State", "Status") === "paused") {
+			return(
 				<div className="buttonSelections">
 					<button id="startButtonDisabled">Start</button>
 					<button id="stopButton">Stop</button>
+					<button id="killButton">Kill</button>
+					<button id="restartButton">Restart</button>
+					<button id="pauseButtonDisabled">Pause</button>
+					<button id="unpauseButton">Unpause</button>
+				</div>
+			);
+		} else if(this.returnDataFromNestedObject("State", "Running")){
+			return(
+				<div className="buttonSelections">
+					<button id="startButtonDisabled">Start</button>
+					<button id="stopButton">Stop</button>
+					<button id="killButton">Kill</button>
 					<button id="restartButton">Restart</button>
 					<button id="pauseButton">Pause</button>
 					<button id="unpauseButtonDisabled">Unpause</button>
 				</div>
-			)
+			);
 		} else if(!this.returnDataFromNestedObject("State", "Running")) {
-			return (
+			return(
 				<div className="buttonSelections">
 					<button id="startButton">Start</button>
 					<button id="stopButtonDisabled">Stop</button>
 					<button id="killButtonDisabled">Kill</button>
+					<button id="restartButton">Restart</button>
 					<button id="pauseButtonDisabled">Pause</button>
 					<button id="unpauseButtonDisabled">Unpause</button>
 				</div>
-			)
+			);
 		}
 	}
 
