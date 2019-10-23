@@ -6,6 +6,10 @@ import './Header.css';
 
 class Header extends Component {
 
+	/**
+	The render-method of the class Header.
+	@return -> It returns some HTML.
+	*/
 	render(){
 		return(
 			<div className="headerSection">

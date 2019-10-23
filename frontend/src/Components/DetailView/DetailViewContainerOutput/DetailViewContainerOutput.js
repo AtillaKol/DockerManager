@@ -6,19 +6,32 @@ import './DetailViewContainerOutput.css';
 
 class DetailViewContainerOutput extends Component{
 
+	/**
+	The constructor of the class DetailViewContainerOutput.
+	@param props -> Used to get data from other components.
+	*/
 	constructor(props) {
-		super();
+		super(props);
 		this.state = {
 			containerDetailedInformaion: {}
 		}
 	}
 
+	/**
+	This method will perform a get request to a given URL (as a parameter) and return the data from the response.
+	@param url -> The URL of the api.
+	@return -> The data from the api.
+	*/
 	async getDetailInformationOfContainer(url) {
 		const RESPONSE = await axios.get(url);
 		const DATA = await RESPONSE.data;
 		return DATA
 	}
 
+	/**
+	This method calls itself when this class is mounted.
+	It will use the return value of the method getDetailInformationOfContainer and store it inside a state.
+	*/
 	componentDidMount() {
 		this.getDetailInformationOfContainer(this.props.url)
 		.then(DATA => {
@@ -29,6 +42,11 @@ class DetailViewContainerOutput extends Component{
 		})
 	}
 
+	/**
+	This method will loop through an array which contains objects and it will store the output inside an array.
+	@param arr -> An array with the objects.
+	@return -> An array which contains all the output in the form of HTMl.
+	*/
 	loopThroughArrayContaingObjects(arr) {
 		if(arr) {
 			let data = [];
@@ -47,6 +65,11 @@ class DetailViewContainerOutput extends Component{
 		}
 	}
 
+	/**
+	This method will loop through an array and store the output inside an array.
+	@param arr -> An array.
+	@return -> An array which contains all the output in the form of HTMl.
+	*/
 	loopThroughArray(arr) {
 		if(arr) {
 			let data = [];
@@ -61,6 +84,11 @@ class DetailViewContainerOutput extends Component{
 		}
 	}
 
+	/**
+	This method will loop through an object and store the output inside an array.
+	@param obj -> An object.
+	@return -> An array which contains all the output in the form of HTMl.
+	*/
 	loopThroughObject(obj) {
 		if(obj) {
 			let data = [];
@@ -75,6 +103,11 @@ class DetailViewContainerOutput extends Component{
 		}
 	}
 
+	/**
+	This method will build the path to the elements inside the object which came from the api.
+	@param args -> This parameter is variabl.
+	@return -> It returns the data from the given path inside the object.
+	*/
 	returnDataFromNestedObject(...args) {	
 		if(this.state.containerDetailedInformaion[args[0]]) {
 			if(args.length <= 2) {
@@ -83,6 +116,10 @@ class DetailViewContainerOutput extends Component{
 		}
 	}
 
+	/**
+	This method will return different buttons depending how the state of the container is.
+	@return -> Different sets of buttons.
+	*/
 	interactionButtons(){
 		if(this.returnDataFromNestedObject("State", "Running") && this.returnDataFromNestedObject("State", "Status") === "paused") {
 			return(
@@ -120,6 +157,10 @@ class DetailViewContainerOutput extends Component{
 		}
 	}
 
+	/**
+	The render-method of the class DetailViewContainerOutput.
+	@return -> It returns some HTML.
+	*/
 	render() {
 		return(
 			<div className="dataFromAPI">

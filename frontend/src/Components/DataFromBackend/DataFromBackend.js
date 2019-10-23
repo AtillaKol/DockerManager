@@ -7,20 +7,32 @@ import './DataFromBackend.css';
 
 class DataFromBackend extends Component {
 
+	/**
+	The constructor of the class DataFromBackend.
+	@param props -> Used to get data from other components.
+	*/
 	constructor(props) {
-		super();
+		super(props);
 		this.state = {
 			"containerInformation": [],
 			"error": false,
 		};
 	}
 
+	/**
+	This method will perform a get request to a given URL and return the data from the response.
+	@return -> The data from the api.
+	*/
 	async getContainers() {
 		const RESPONSE = await axios.get(this.props.url);
 		const DATA = await RESPONSE.data;
 		return DATA;
 	}
 
+	/**
+	This method calls itself when this class is mounted.
+	It stores the DATA inside the state.
+	*/
 	componentDidMount() {
 		this.getContainers()
 		.then(DATA => {
@@ -33,7 +45,10 @@ class DataFromBackend extends Component {
 		});
 	}
 
-
+	/**
+	The render-method of the class DataFromBackend.
+	@return -> It returns some HTML.
+	*/
 	render(){
 		if(this.state.error){
 			return(

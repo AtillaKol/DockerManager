@@ -9,21 +9,19 @@ import './Configuration.css';
 
 class Configuration extends Component{
 
-
+	/**
+	The constructor of the class Configuration.
+	@param props -> Used to get data from other components.
+	*/
 	constructor(props) {
-		super();
+		super(props);
 		this.configService = new configurationServiceController();
-		this.state = {
-			"host":"",
-			"port":"", 
-			"newHost":"",
-			"newPort":"",
-			"responseTitle":"",
-			"responseText":"",
-			"clicked": false
-		}
 	}
 
+	/**
+	This method calls itself when this class is mounted.
+	It fetches data from the ConfigurationService and store it in state.
+	*/
 	componentDidMount(){
 		this.configService.getConfigurationDataFromService()
 		.then(DATA => {
@@ -37,6 +35,10 @@ class Configuration extends Component{
 		});
 	}
 
+	/**
+	This method performs a put request and stores the response in DATA.
+	@return -> The response from the request.
+	*/
 	async getRespnseAfterPost(){
 		const RESPONSE = await axios({
 			method: 'put',
@@ -50,10 +52,18 @@ class Configuration extends Component{
 		return DATA
 	}
 
+	/**
+	This method is used to store the new host and the new port in the state.
+	@param e -> Used for the event.
+	*/
 	handleChange = (e) => this.setState({
 		[e.target.name]: e.target.value
 	});
 
+	/**
+	This method is used to store the response from the api and that the button has been pressed.
+	@param e -> Used for the event.
+	*/
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.getRespnseAfterPost()
@@ -73,6 +83,10 @@ class Configuration extends Component{
 		})
 	}
 
+	/**
+	The render-method of the class Configuration.
+	@return -> It returns some HTML.
+	*/
 	render(){
 		if(this.state != null){
 			return(

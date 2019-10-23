@@ -11,6 +11,10 @@ import RunningContainers from './Components/runningContainers/runningContainers'
 
 class App extends Component {
 
+  /**
+  The render-method of the class App.
+  @return -> It returns some HTML.
+  */
   render() {
     return (
       <Router>

@@ -7,8 +7,12 @@ import './DetailView.css'
 
 class DetailView extends Component {
 
+	/**
+	The constructor of the class AllContainers.
+	@param props -> Used to get data from other components.
+	*/
 	constructor(props) {
-		super();
+		super(props);
 		this.configService = new configurationServiceController();
 		this.state = {
 			"containerId": "",
@@ -19,6 +23,9 @@ class DetailView extends Component {
 		this.url = "";
 	}
 
+	/**
+	This method will fetch data from the ConfigurationService.
+	*/
 	getConfigServiceData() {
 		this.configService.getConfigurationDataFromService()
 		.then(DATA => {
@@ -32,6 +39,9 @@ class DetailView extends Component {
 		});
 	}
 
+	/**
+	This method will store the ID of the container which was chosen by the user.
+	*/
 	getContainerID() {
 		if(this.props.location.data !== undefined) {
 			this.setState({
@@ -44,12 +54,19 @@ class DetailView extends Component {
 		}
 	}
 
-
+	/**
+	This method calls itself when this class is mounted.
+	It stores the DATA inside the state.
+	*/
 	componentDidMount() {
 		this.getConfigServiceData();
 		this.getContainerID();
 	}
 
+	/**
+	The render-method of the class DetailView.
+	@return -> It returns some HTML.
+	*/
 	render() {
 		if(this.state.Host !== "" && this.state.Port !== ""){
 			if(!this.state.error) {
