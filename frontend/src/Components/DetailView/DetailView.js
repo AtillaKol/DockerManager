@@ -43,7 +43,7 @@ class DetailView extends Component {
 	*/
 	getContainerID() {
 		if(this.props.location.data !== undefined) {
-			localStorage.setItem("currentUsedID", this.props.location.data.containerId);
+			localStorage.setItem("currentUsedContainerID", this.props.location.data.containerId);
 		} else {
 			this.setState({
 				"error": true
@@ -66,8 +66,8 @@ class DetailView extends Component {
 	*/
 	render() {
 		if(this.state.Host !== "" && this.state.Port !== ""){
-			if(!this.state.error || localStorage.getItem("currentUsedID")) {
-				this.url = this.configService.buildPathToBackend(this.state.Host, this.state.Port, "/containers/"+localStorage.getItem("currentUsedID")+"/json")
+			if(!this.state.error || localStorage.getItem("currentUsedContainerID")) {
+				this.url = this.configService.buildPathToBackend(this.state.Host, this.state.Port, "/containers/"+localStorage.getItem("currentUsedContainerID")+"/json")
 				return(
 					<div className="container">
 						<div className="siteTitles">
@@ -77,7 +77,7 @@ class DetailView extends Component {
 							Here you can get a detail view of the container you choose.
 						</p>
 						<div className="containerDetailInformationOutput">
-							<h4>Detailed information for container: {localStorage.getItem("currentUsedID")}</h4>
+							<h4>Detailed information for container: {localStorage.getItem("currentUsedContainerID")}</h4>
 							<DetailViewContainerOutput url={this.url}/>
 						</div>
 					</div>
