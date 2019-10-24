@@ -8,14 +8,13 @@ import './DetailView.css'
 class DetailView extends Component {
 
 	/**
-	The constructor of the class AllContainers.
+	The constructor of the class DetailView.
 	@param props -> Used to get data from other components.
 	*/
 	constructor(props) {
 		super(props);
 		this.configService = new configurationServiceController();
 		this.state = {
-			"containerId": "",
 			"error": false,
 			"Host": "",
 			"Port": "",
@@ -44,9 +43,7 @@ class DetailView extends Component {
 	*/
 	getContainerID() {
 		if(this.props.location.data !== undefined) {
-			this.setState({
-				"containerId": this.props.location.data.containerId
-			})
+			localStorage.setItem("currentUsedID", this.props.location.data.containerId);
 		} else {
 			this.setState({
 				"error": true
@@ -69,8 +66,8 @@ class DetailView extends Component {
 	*/
 	render() {
 		if(this.state.Host !== "" && this.state.Port !== ""){
-			if(!this.state.error) {
-				this.url = this.configService.buildPathToBackend(this.state.Host, this.state.Port, "/containers/"+this.state.containerId+"/json")
+			if(!this.state.error || localStorage.getItem("currentUsedID")) {
+				this.url = this.configService.buildPathToBackend(this.state.Host, this.state.Port, "/containers/"+localStorage.getItem("currentUsedID")+"/json")
 				return(
 					<div className="container">
 						<div className="siteTitles">
@@ -80,7 +77,7 @@ class DetailView extends Component {
 							Here you can get a detail view of the container you choose.
 						</p>
 						<div className="containerDetailInformationOutput">
-							<h4>Detailed information for container: {this.state.containerId}</h4>
+							<h4>Detailed information for container: {localStorage.getItem("currentUsedID")}</h4>
 							<DetailViewContainerOutput url={this.url}/>
 						</div>
 					</div>

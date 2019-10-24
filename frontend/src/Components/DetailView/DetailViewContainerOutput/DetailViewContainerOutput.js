@@ -43,6 +43,19 @@ class DetailViewContainerOutput extends Component{
 	}
 
 	/**
+	This method will build the path to the elements inside the object which came from the api.
+	@param args -> This parameter is variabl.
+	@return -> It returns the data from the given path inside the object.
+	*/
+	returnDataFromNestedObject(...args) {	
+		if(this.state.containerDetailedInformaion[args[0]]) {
+			if(args.length <= 2) {
+				return this.state.containerDetailedInformaion[args[0]][args[1]];
+			}
+		}
+	}
+
+	/**
 	This method will loop through an array which contains objects and it will store the output inside an array.
 	@param arr -> An array with the objects.
 	@return -> An array which contains all the output in the form of HTMl.
@@ -100,19 +113,6 @@ class DetailViewContainerOutput extends Component{
 				}
 			}
 			return data;
-		}
-	}
-
-	/**
-	This method will build the path to the elements inside the object which came from the api.
-	@param args -> This parameter is variabl.
-	@return -> It returns the data from the given path inside the object.
-	*/
-	returnDataFromNestedObject(...args) {	
-		if(this.state.containerDetailedInformaion[args[0]]) {
-			if(args.length <= 2) {
-				return this.state.containerDetailedInformaion[args[0]][args[1]];
-			}
 		}
 	}
 
