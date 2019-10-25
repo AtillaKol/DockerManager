@@ -67,7 +67,7 @@ class DetailView extends Component {
 	render() {
 		if(this.state.Host !== "" && this.state.Port !== ""){
 			if(!this.state.error || sessionStorage.getItem("currentUsedContainerID")) {
-				this.url = this.configService.buildPathToBackend(this.state.Host, this.state.Port, "/containers/"+sessionStorage.getItem("currentUsedContainerID")+"/json")
+				this.baseURL = "http://"+this.state.Host+":"+this.state.Port;
 				return(
 					<div className="container">
 						<div className="siteTitles">
@@ -78,7 +78,7 @@ class DetailView extends Component {
 						</p>
 						<div className="containerDetailInformationOutput">
 							<h4>Detailed information for container: {sessionStorage.getItem("currentUsedContainerID")}</h4>
-							<DetailViewContainerOutput url={this.url}/>
+							<DetailViewContainerOutput baseURL={this.baseURL}/>
 						</div>
 					</div>
 				);

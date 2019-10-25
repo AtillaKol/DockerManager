@@ -14,18 +14,18 @@ class DetailViewContainerOutput extends Component{
 		super(props);
 		this.state = {
 			containerDetailedInformaion: {}
-		}
+		};
 	}
 
 	/**
 	This method will perform a get request to a given URL (as a parameter) and return the data from the response.
-	@param url -> The URL of the api.
+	@param baseURL -> The base URL of the api.
 	@return -> The data from the api.
 	*/
-	async getDetailInformationOfContainer(url) {
-		const RESPONSE = await axios.get(url);
+	async getDetailInformationOfContainer(baseURL) {
+		const RESPONSE = await axios.get(baseURL);
 		const DATA = await RESPONSE.data;
-		return DATA
+		return DATA;
 	}
 
 	/**
@@ -33,7 +33,7 @@ class DetailViewContainerOutput extends Component{
 	It will use the return value of the method getDetailInformationOfContainer and store it inside a state.
 	*/
 	componentDidMount() {
-		this.getDetailInformationOfContainer(this.props.url)
+		this.getDetailInformationOfContainer(this.props.baseURL+"/containers/"+sessionStorage.getItem("currentUsedContainerID")+"/json")
 		.then(DATA => {
 			this.setState({
 				containerDetailedInformaion: DATA
@@ -87,7 +87,7 @@ class DetailViewContainerOutput extends Component{
 		if(arr) {
 			let data = [];
 			if(arr.length <= 1) {
-				data.push(arr[0])
+				data.push(arr[0]);
 			} else {
 				for(var i = 0; i < arr.length; i++) {
 					data.push(<li key={i} className="list">{arr[i]}</li>);
@@ -117,6 +117,15 @@ class DetailViewContainerOutput extends Component{
 	}
 
 	/**
+	This method will make a http-request to the backend to change the status of the container.
+	@param e -> Used to handle the click event. 
+	*/
+	changeStatusOfContainer = async (e) => {
+		await axios.post(this.props.baseURL+"/containers/"+sessionStorage.getItem("currentUsedContainerID")+"/"+e.target.value)
+		window.location.reload();
+	}
+
+	/**
 	This method will return different buttons depending how the state of the container is.
 	@return -> Different sets of buttons.
 	*/
@@ -125,31 +134,31 @@ class DetailViewContainerOutput extends Component{
 			return(
 				<div className="buttonSelections">
 					<button id="startButtonDisabled">Start</button>
-					<button id="stopButton">Stop</button>
-					<button id="killButton">Kill</button>
-					<button id="restartButton">Restart</button>
+					<button value="stop" id="stopButton" onClick={this.changeStatusOfContainer}>Stop</button>
+					<button value="kill" id="killButton" onClick={this.changeStatusOfContainer}>Kill</button>
+					<button value="restart" id="restartButton" onClick={this.changeStatusOfContainer}>Restart</button>
 					<button id="pauseButtonDisabled">Pause</button>
-					<button id="unpauseButton">Unpause</button>
+					<button value="unpause" id="unpauseButton" onClick={this.changeStatusOfContainer}>Unpause</button>
 				</div>
 			);
 		} else if(this.returnDataFromNestedObject("State", "Running")){
 			return(
 				<div className="buttonSelections">
 					<button id="startButtonDisabled">Start</button>
-					<button id="stopButton">Stop</button>
-					<button id="killButton">Kill</button>
-					<button id="restartButton">Restart</button>
-					<button id="pauseButton">Pause</button>
+					<button value="stop" id="stopButton" onClick={this.changeStatusOfContainer}>Stop</button>
+					<button value="kill" id="killButton" onClick={this.changeStatusOfContainer}>Kill</button>
+					<button value="restart" id="restartButton" onClick={this.changeStatusOfContainer}>Restart</button>
+					<button value="pause" id="pauseButton" onClick={this.changeStatusOfContainer}>Pause</button>
 					<button id="unpauseButtonDisabled">Unpause</button>
 				</div>
 			);
 		} else if(!this.returnDataFromNestedObject("State", "Running")) {
 			return(
 				<div className="buttonSelections">
-					<button id="startButton">Start</button>
+					<button value="start" id="startButton" onClick={this.changeStatusOfContainer}>Start</button>
 					<button id="stopButtonDisabled">Stop</button>
 					<button id="killButtonDisabled">Kill</button>
-					<button id="restartButton">Restart</button>
+					<button value="restart" id="restartButton" onClick={this.changeStatusOfContainer}>Restart</button>
 					<button id="pauseButtonDisabled">Pause</button>
 					<button id="unpauseButtonDisabled">Unpause</button>
 				</div>
