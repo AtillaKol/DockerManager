@@ -42,6 +42,34 @@
 		}
 	}
 
+	#changeNameForm {
+		h4 {
+			margin-top: 5px;
+		}
+		input {
+			text-align: center;
+			font-size: 15px;
+			padding: 15px 15px;
+			margin-top: 20px;
+			border-radius: 50px;
+			border: none;
+			&:focus {
+				outline: none;
+			}
+		}
+		input[type=submit] {
+			padding: 10px 15px;
+			font-size: 15px;
+			color: white;
+			background-color: #008CBA;
+		}	
+	}
+
+	#renameSections {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
 	.buttonSelections {
 		margin-top: 30px;
 		margin-bottom: 20px;

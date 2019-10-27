@@ -19,6 +19,30 @@
   margin-left: 10px;
   margin-top: 10px;
 }
+.dataFromAPI #changeNameForm h4 {
+  margin-top: 5px;
+}
+.dataFromAPI #changeNameForm input {
+  text-align: center;
+  font-size: 15px;
+  padding: 15px 15px;
+  margin-top: 20px;
+  border-radius: 50px;
+  border: none;
+}
+.dataFromAPI #changeNameForm input:focus {
+  outline: none;
+}
+.dataFromAPI #changeNameForm input[type=submit] {
+  padding: 10px 15px;
+  font-size: 15px;
+  color: white;
+  background-color: #008CBA;
+}
+.dataFromAPI #renameSections {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .dataFromAPI .buttonSelections {
   margin-top: 30px;
   margin-bottom: 20px;

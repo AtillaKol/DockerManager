@@ -63,8 +63,8 @@ class DataFromBackend extends Component {
 						<thead>
 							<tr>
 								<th>ID</th>
-								<th>Names</th>
-								<th>Images</th>
+								<th>Name</th>
+								<th>Image</th>
 								<th>Command</th>
 								<th>Status</th>
 							</tr>

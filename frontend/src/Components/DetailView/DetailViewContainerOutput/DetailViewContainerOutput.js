@@ -120,9 +120,20 @@ class DetailViewContainerOutput extends Component{
 	This method will make a http-request to the backend to change the status of the container.
 	@param e -> Used to handle the click event. 
 	*/
-	changeStatusOfContainer = async (e) => {
+	changeStatusOfContainer = async(e) => {
 		await axios.post(this.props.baseURL+"/containers/"+sessionStorage.getItem("currentUsedContainerID")+"/"+e.target.value)
 		window.location.reload();
+	}
+
+	handleChange = (e) => {
+		this.setState({
+			[e.target.name]: e.target.value
+		})
+	}
+
+	handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(this.state);
 	}
 
 	/**
@@ -174,6 +185,21 @@ class DetailViewContainerOutput extends Component{
 		return(
 			<div className="dataFromAPI">
 				{this.interactionButtons()}
+				<div className="dataDiv">
+					<div id="renameSections">
+						<h4>Change name of this container</h4>
+						The container has currently following name: {this.state.containerDetailedInformaion["Name"]}.
+						<br/>
+						<br/>
+						If you want to change it, use the form below.
+					</div>
+					<form id="changeNameForm" onSubmit={this.handleSubmit}>
+						<input  type="text" placeholder="New Name" name="newName" onChange={this.handleChange}/>
+						<br/>
+						<input type="submit" value="Rename"/>
+					</form>
+				</div>
+				<h3>Detail information of the container</h3>
 				<div className="dataDiv">
 					<b className="titleForElement">AppArmorProfile</b>: {this.state.containerDetailedInformaion["AppArmorProfile"]}
 				</div>

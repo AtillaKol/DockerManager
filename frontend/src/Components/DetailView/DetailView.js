@@ -77,7 +77,6 @@ class DetailView extends Component {
 							Here you can get a detail view of the container you choose.
 						</p>
 						<div className="containerDetailInformationOutput">
-							<h4>Detailed information for container: {sessionStorage.getItem("currentUsedContainerID")}</h4>
 							<DetailViewContainerOutput baseURL={this.baseURL}/>
 						</div>
 					</div>
