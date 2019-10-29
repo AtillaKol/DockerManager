@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Response from './Response/Response';
+import Response from '../Response/Response';
 import configurationServiceController from '../../Controller/configurationServiceController';
 import './Configuration.css';
 
