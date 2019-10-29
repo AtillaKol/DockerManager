@@ -1,7 +1,7 @@
 # Backend
 
 This is the Backend of the project.<br>
-**Important:** This project must run **OUTSIDE** of the container.
+**Important:** The Backend must run **OUTSIDE** of the container.
 
 ## Requirements
 - Maven to build the Backend with its dependencies: https://maven.apache.org/download.cgi
