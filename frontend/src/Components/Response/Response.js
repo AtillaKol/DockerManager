@@ -4,9 +4,6 @@ import './Response.css';
 
 class Response extends Component {
 
-	responseFromAPI(){
-		
-	}
 
 	/**
 	The render-method of the class Response.

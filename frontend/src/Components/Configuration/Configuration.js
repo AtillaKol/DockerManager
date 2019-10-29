@@ -71,7 +71,7 @@ class Configuration extends Component{
 			this.setState({
 				"responseTitle": DATA["Response"][0],
 				"responseText": DATA["Response"][1],
-				"clicked": true
+				"submitted": true
 			})
 		})
 		.catch(ERROR => {
@@ -95,7 +95,7 @@ class Configuration extends Component{
 						<h1>Configuration of Backend</h1>
 					</div>
 					<p className="mainParagraph">
-						On this side you can change the host and the port where the Backend runs.
+						On this page you can change the host and the port where the Backend runs.
 						<br/>
 						The current settings: 
 						<br/>
@@ -113,7 +113,7 @@ class Configuration extends Component{
 						<br/>
 						<input type="submit" value="Submit"/>
 					</form>
-					{this.state.clicked && <Response data={this.state}/>}
+					{this.state.submitted && <Response data={this.state}/>}
 				</div>
 			)
 		} else {

@@ -50,7 +50,7 @@
 			text-align: center;
 			font-size: 15px;
 			padding: 15px 15px;
-			margin-top: 20px;
+			margin-top: 5px;
 			border-radius: 50px;
 			border: none;
 			&:focus {
@@ -58,10 +58,12 @@
 			}
 		}
 		input[type=submit] {
+			margin-top: 20px;
 			padding: 10px 15px;
 			font-size: 15px;
 			color: white;
 			background-color: #008CBA;
+			cursor: pointer;
 		}	
 	}
 
