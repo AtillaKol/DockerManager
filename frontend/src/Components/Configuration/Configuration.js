@@ -16,6 +16,10 @@ class Configuration extends Component{
 	constructor(props) {
 		super(props);
 		this.configService = new configurationServiceController();
+		this.state = {
+			"newHost":"",
+			"newPort":""
+		}
 	}
 
 	/**
