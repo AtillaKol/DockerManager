@@ -76,14 +76,16 @@ class Configuration extends Component{
 				"responseTitle": DATA["Response"][0],
 				"responseText": DATA["Response"][1],
 				"submitted": true
+			}, 
+			//This method will executed when setState is performed. It will check if responseTitle equals Success and when it does, it will autofresh the page.
+			() => {
+				if(this.state.responseTitle === "Success") {
+					window.location.reload();
+				}
 			})
 		})
 		.catch(ERROR => {
 			console.log(ERROR);
-		})
-		this.setState({
-			"newHost": "",
-			"newPort": ""
 		})
 	}
 
@@ -117,7 +119,7 @@ class Configuration extends Component{
 						<br/>
 						<input type="submit" value="Submit"/>
 					</form>
-					{this.state.submitted && <Response data={this.state}/>}
+					{this.state.submitted && this.state.responseTitle !== "Success" && <Response data={this.state}/>}
 				</div>
 			)
 		} else {
