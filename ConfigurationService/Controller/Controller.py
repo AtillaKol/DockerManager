@@ -43,7 +43,7 @@ class controllerClass:
 				portnumber = int(portnumber)
 				if portnumber < 65536 and portnumber > 0:
 					self.iniWriterObject.changeValuesIniniFile(hostname, str(portnumber))
-					return {"Response": ["Success", "New data is written into the ini-file. Refresh page to see the changes."]}, 200
+					return {"Response": ["Success", "New data is written into the ini-file. Page will refresh automatically."]}, 200
 				else:
 					return {"Response": ["RangeError", "The portnumber must be smaller then 65536 and bigger then zero."]}, 200
 			except ValueError:
