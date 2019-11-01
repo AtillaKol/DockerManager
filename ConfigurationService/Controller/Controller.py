@@ -27,17 +27,15 @@ class controllerClass:
 	# This method call the method for modiyfing the data inside the ini.fi
 	# param json -> The data from the Frontend as json.
 	'''
-	return -> This method has four differnt return values.
-		NotSet -> When one or both variabls are not set.
-		Success -> When the port value is acceptable.
-		RangeError -> When the port number is bigger then 65536 or smaller then zero.
-		Error -> When the port number is not a really number.
+	return -> This method has two differnt return values.
+		Error -> When something went wrong e.g wrong input from user.
+		Success -> When the input of hostname and port are valid.
 	'''
 	def modifyIniFile(self, json):
 		hostname = json['hostname']
 		portnumber = json['port']
 		if (portnumber == "" and hostname == "") or (portnumber == "" or hostname == ""):
-			return {"Response": ["NotSet", "One or both of the variabls are not set."]}, 200
+			return {"Response": ["Error", "One or both of the variabls are not set."]}, 200
 		else:
 			try:
 				portnumber = int(portnumber)
@@ -45,7 +43,7 @@ class controllerClass:
 					self.iniWriterObject.changeValuesIniniFile(hostname, str(portnumber))
 					return {"Response": ["Success", "New data is written into the ini-file. Page will refresh automatically."]}, 200
 				else:
-					return {"Response": ["RangeError", "The portnumber must be smaller then 65536 and bigger then zero."]}, 200
+					return {"Response": ["Error", "The portnumber must be smaller then 65536 and bigger then zero."]}, 200
 			except ValueError:
 				return {"Response": ["Error", "The input of the port is not a number."]}, 200
 		
