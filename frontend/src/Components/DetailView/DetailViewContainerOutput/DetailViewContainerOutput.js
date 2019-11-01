@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import './DetailViewContainerOutput.css';
+import Response from '../../Response/Response';
 
 class DetailViewContainerOutput extends Component{
 
@@ -13,18 +14,32 @@ class DetailViewContainerOutput extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			containerDetailedInformaion: {}
+			"containerDetailedInformaion": {},
+			"submitted": false,
+			"newName": ""
 		};
 	}
 
 	/**
 	This method will perform a get request to a given URL (as a parameter) and return the data from the response.
-	@param baseURL -> The base URL of the api.
-	@return -> The data from the api.
+	@param url -> The URL of the api.
+	@return -> The response data.
 	*/
-	async getDetailInformationOfContainer(baseURL) {
-		const RESPONSE = await axios.get(baseURL);
+	async getDetailInformationOfContainer(url) {
+		const RESPONSE = await axios.get(url);
 		const DATA = await RESPONSE.data;
+		return DATA;
+	}
+
+	/**
+	This method will perform a post request to a given URL (as a parameter), 
+	rename the container if possibly and return the response frmo the api.
+	@param url -> The URL of the api.
+	@return -> The response data.
+	*/
+	async renameContainer(url) {
+		const RESPONSE = await axios.post(url);
+		const DATA = await RESPONSE.data;	
 		return DATA;
 	}
 
@@ -131,9 +146,40 @@ class DetailViewContainerOutput extends Component{
 		})
 	}
 
+
+	/**
+	This method will handle the submit for the changing name form.
+	@param e -> Used to handle the click event.
+	*/
 	handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(this.state);
+		const URL = this.props.baseURL+"/containers/"+sessionStorage.getItem("currentUsedContainerID")+"/rename?name="+this.state.newName
+		this.renameContainer(URL)
+		.then(DATA => {
+			this.setState({
+				"submitted": true,
+				"responseText": DATA.message
+			}, 
+			// This method will be called as soon as the state is set. It will check if the renaming was successfully.
+			() => {
+				if(this.state.responseText !== undefined) {
+					this.setState({
+						"responseTitle": "Error"
+					});
+				} else {
+					this.setState({
+						"responseText": "Changed name successfully. Page will auto-refresh",
+						"responseTitle": "Success"
+					});
+					window.setTimeout( () => {
+						window.location.reload();
+					}, 3000);
+				}
+			});
+		})
+		.catch(ERROR => {
+			console.log(ERROR);
+		})
 	}
 
 	/**
@@ -198,6 +244,7 @@ class DetailViewContainerOutput extends Component{
 						<br/>
 						<input type="submit" value="Rename"/>
 					</form>
+					{this.state.submitted && <Response data={this.state}/>}
 				</div>
 				<h3>Detail information of the container</h3>
 				<div className="dataDiv">
