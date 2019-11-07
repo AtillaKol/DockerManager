@@ -2,17 +2,25 @@
 import React, { Component } from 'react';
 import configurationServiceController from '../../Controller/configurationServiceController';
 
-import TableForPresentingContainers from '../tableForPresentingContainers/tableForPresentingContainers';
+import DataFromBackend from '../DataFromBackend/DataFromBackend';
 import './runningContainers.css';
 
 class RunningContainers extends Component {
 
+	/**
+	The constructor of the class RunningContainers.
+	@param props -> Used to get data from other components.
+	*/
 	constructor(props){
-		super();
+		super(props);
 		this.configService = new configurationServiceController();
 		this.url = "";
 	}
 
+	/**
+	This method calls itself when this class is mounted.
+	It fetches data from the ConfigurationService and store it inside state.
+	*/
 	componentDidMount(){
 		this.configService.getConfigurationDataFromService()
 		.then(DATA => {
@@ -25,7 +33,11 @@ class RunningContainers extends Component {
 			console.log(ERROR);
 		})
 	}
-
+	
+	/**
+	The render-method of the class RunningContainers.
+	@return -> It returns some HTML.
+	*/
 	render(){
 		if(this.state != null){
 			this.url = this.configService.buildPathToBackend(this.state.host, this.state.port, "/containers/json");
@@ -35,15 +47,20 @@ class RunningContainers extends Component {
 						<h1>Running Containers</h1>
 					</div>
 					<p className="mainParagraph">
-						Here you can see all containers currently running on the machine.
+						Here you can see all containers currently running on the machine. If you want to have detailed information from the container, click the on id of the container.
 					</p>
-					<TableForPresentingContainers url={this.url}/>
+					<DataFromBackend url={this.url}/>
 				</div>
 			);
 		} else {
 			return(
-				<div>
-					Fetching data from Configuration service.....
+				<div className="container">
+					<div className="siteTitles">
+						<h1>Running Containers</h1>
+					</div>
+					<p className="mainParagraph">
+						Fetching data from Configuration service.....
+					</p>
 				</div>
 			)
 		}

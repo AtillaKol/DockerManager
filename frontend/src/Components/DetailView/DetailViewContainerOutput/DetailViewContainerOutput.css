@@ -1,0 +1,200 @@
+.arrayOfObjects h4 {
+  margin-bottom: 10px;
+}
+
+.list {
+  margin-left: 25px;
+}
+
+.dataFromAPI .dataDiv {
+  font-size: 15px;
+  overflow-wrap: break-word;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  border-style: solid;
+  border-width: 1px;
+}
+.dataFromAPI .dataDiv .innerContent {
+  display: block;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.dataFromAPI #changeNameForm h4 {
+  margin-top: 5px;
+}
+.dataFromAPI #changeNameForm input {
+  text-align: center;
+  font-size: 15px;
+  padding: 15px 15px;
+  margin-top: 5px;
+  border-radius: 50px;
+  border: none;
+}
+.dataFromAPI #changeNameForm input:focus {
+  outline: none;
+}
+.dataFromAPI #changeNameForm input[type=submit] {
+  margin-top: 20px;
+  padding: 10px 15px;
+  font-size: 15px;
+  color: white;
+  background-color: #008CBA;
+  cursor: pointer;
+}
+.dataFromAPI #renameSections {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.dataFromAPI .buttonSelections {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.dataFromAPI .buttonSelections .buttons:hover {
+  opacity: 1;
+}
+.dataFromAPI .buttonSelections #startButton {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: white;
+  background-color: #4CAF50;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.dataFromAPI .buttonSelections #startButtonDisabled {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: white;
+  background-color: #4CAF50;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.dataFromAPI .buttonSelections #stopButton {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: white;
+  background-color: #f44336;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.dataFromAPI .buttonSelections #stopButtonDisabled {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: white;
+  background-color: #f44336;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.dataFromAPI .buttonSelections #restartButton {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: black;
+  background-color: #FFDC00;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.dataFromAPI .buttonSelections #restartButtonDisabled {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: black;
+  background-color: #FFDC00;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.dataFromAPI .buttonSelections #killButton {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: white;
+  background-color: #f44336;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.dataFromAPI .buttonSelections #killButtonDisabled {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: white;
+  background-color: #f44336;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.dataFromAPI .buttonSelections #pauseButton {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: black;
+  background-color: #FFDC00;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.dataFromAPI .buttonSelections #pauseButtonDisabled {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: black;
+  background-color: #FFDC00;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.dataFromAPI .buttonSelections #unpauseButton {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: black;
+  background-color: #FFDC00;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.dataFromAPI .buttonSelections #unpauseButtonDisabled {
+  margin-right: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 10px;
+  color: black;
+  background-color: #FFDC00;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/*# sourceMappingURL=DetailViewContainerOutput.css.map */
