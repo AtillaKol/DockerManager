@@ -1,0 +1,132 @@
+
+@mixin buttonDesign($colorOfButton, $colorOfText, $disabled: false) {
+	margin-right: 10px;
+	padding: 10px 15px;
+	font-size: 15px;
+	border-radius: 10px;
+	color: $colorOfText;
+	background-color: $colorOfButton;
+	cursor: pointer;
+	border: none;
+	outline: none;
+	@if $disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+}
+
+.arrayOfObjects {
+	h4 {
+		margin-bottom: 10px;
+	}
+}
+
+.list {
+	margin-left: 25px;
+}
+
+.dataFromAPI{
+
+	.dataDiv {
+		font-size: 15px;
+		overflow-wrap: break-word;
+		margin-bottom: 20px;
+		padding: 5px 10px;
+		border-style: solid;
+		border-width: 1px;
+
+		.innerContent {
+			display: block;
+			margin-left: 10px;
+			margin-top: 10px;
+		}
+	}
+
+	#changeNameForm {
+		h4 {
+			margin-top: 5px;
+		}
+		input {
+			text-align: center;
+			font-size: 15px;
+			padding: 15px 15px;
+			margin-top: 5px;
+			border-radius: 50px;
+			border: none;
+			&:focus {
+				outline: none;
+			}
+		}
+		input[type=submit] {
+			margin-top: 20px;
+			padding: 10px 15px;
+			font-size: 15px;
+			color: white;
+			background-color: #008CBA;
+			cursor: pointer;
+		}	
+	}
+
+	#renameSections {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.buttonSelections {
+		margin-top: 30px;
+		margin-bottom: 20px;
+
+		.buttons:hover {
+			opacity: 1;
+		}
+
+		#startButton {
+			@include buttonDesign(#4CAF50, white);
+		}
+
+		#startButtonDisabled {
+			@include buttonDesign(#4CAF50, white, true);
+		}
+
+		#stopButton {
+			@include buttonDesign(#f44336, white);
+		}
+
+		#stopButtonDisabled {
+			@include buttonDesign(#f44336, white, true);	
+		}
+
+		#restartButton {
+			@include buttonDesign(#FFDC00, black);
+		}
+
+		#restartButtonDisabled {
+			@include buttonDesign(#FFDC00, black, true);
+		}
+
+		#killButton {
+			@include buttonDesign(#f44336, white);
+		}
+
+		#killButtonDisabled {
+			@include buttonDesign(#f44336, white, true);
+		}
+
+		#pauseButton {
+			@include buttonDesign(#FFDC00, black);
+		}
+
+		#pauseButtonDisabled {
+			@include buttonDesign(#FFDC00, black, true);	
+		}
+
+		#unpauseButton {
+			@include buttonDesign(#FFDC00, black);
+		}
+
+		#unpauseButtonDisabled {
+			@include buttonDesign(#FFDC00, black, true);	
+		}
+
+	}
+}

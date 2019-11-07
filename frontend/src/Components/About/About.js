@@ -4,6 +4,11 @@ import './About.css';
 import '../../App.css';
 
 class About extends Component {
+	
+	/**
+	The render-method of the class About.
+	@return -> It returns some HTML.
+	*/
 	render(){
 		return(
 			<div className="container">

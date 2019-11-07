@@ -2,28 +2,30 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import Response from './Response/Response';
+import Response from '../Response/Response';
 import configurationServiceController from '../../Controller/configurationServiceController';
 import './Configuration.css';
 
 
 class Configuration extends Component{
 
-
+	/**
+	The constructor of the class Configuration.
+	@param props -> Used to get data from other components.
+	*/
 	constructor(props) {
-		super();
+		super(props);
 		this.configService = new configurationServiceController();
 		this.state = {
-			"host":"",
-			"port":"", 
 			"newHost":"",
-			"newPort":"",
-			"responseTitle":"",
-			"responseText":"",
-			"clicked": false
+			"newPort":""
 		}
 	}
 
+	/**
+	This method calls itself when this class is mounted.
+	It fetches data from the ConfigurationService and store it in state.
+	*/
 	componentDidMount(){
 		this.configService.getConfigurationDataFromService()
 		.then(DATA => {
@@ -37,6 +39,10 @@ class Configuration extends Component{
 		});
 	}
 
+	/**
+	This method performs a put request and stores the response in DATA.
+	@return -> The response from the request.
+	*/
 	async getRespnseAfterPost(){
 		const RESPONSE = await axios({
 			method: 'put',
@@ -50,10 +56,18 @@ class Configuration extends Component{
 		return DATA
 	}
 
+	/**
+	This method is used to store the new host and the new port in the state.
+	@param e -> Used for the event.
+	*/
 	handleChange = (e) => this.setState({
 		[e.target.name]: e.target.value
 	});
 
+	/**
+	This method is used to store the response from the api and that the button has been pressed.
+	@param e -> Used for the event.
+	*/
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.getRespnseAfterPost()
@@ -61,18 +75,28 @@ class Configuration extends Component{
 			this.setState({
 				"responseTitle": DATA["Response"][0],
 				"responseText": DATA["Response"][1],
-				"clicked": true
+				"submitted": true
+			}, 
+			//This method will executed when setState is performed. It will check if responseTitle equals Success and when it does, it will autofresh the page.
+			() => {
+				if(this.state.responseTitle === "Success") {
+					window.setTimeout(
+						() => {
+							window.location.reload();
+						},
+					3000);
+				}
 			})
 		})
 		.catch(ERROR => {
 			console.log(ERROR);
 		})
-		this.setState({
-			"newHost": "",
-			"newPort": ""
-		})
 	}
 
+	/**
+	The render-method of the class Configuration.
+	@return -> It returns some HTML.
+	*/
 	render(){
 		if(this.state != null){
 			return(
@@ -81,7 +105,7 @@ class Configuration extends Component{
 						<h1>Configuration of Backend</h1>
 					</div>
 					<p className="mainParagraph">
-						On this side you can change the host and the port where the Backend runs.
+						On this page you can change the host and the port where the Backend runs.
 						<br/>
 						The current settings: 
 						<br/>
@@ -99,13 +123,18 @@ class Configuration extends Component{
 						<br/>
 						<input type="submit" value="Submit"/>
 					</form>
-					{this.state.clicked && <Response data={this.state}/>}
+					{this.state.submitted && <Response data={this.state}/>}
 				</div>
 			)
 		} else {
 			return(
-				<div>
-					Fetching data from Configuration service.....
+				<div className="container">
+					<div className="siteTitles">
+						<h1>Configuration of Backend</h1>
+					</div>
+					<p className="mainParagraph">
+						Fetching data from Configuration service.....
+					</p>
 				</div>
 			)
 		}

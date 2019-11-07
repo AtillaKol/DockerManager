@@ -7,17 +7,8 @@
 	border-radius: 25px;
 }
 
-
-.NotSet {
-	@include messageToUser(#FFDC00);
-}
-
 .Success {
 	@include messageToUser(#01FF70);
-}
-
-.RangeError {
-	@include messageToUser(#FFDC00);
 }
 
 .Error {
