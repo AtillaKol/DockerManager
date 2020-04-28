@@ -17,4 +17,11 @@ ${AnsiColor.GREEN}||\    / '  .'.''| |    '. `._____.-'/  |    /\  \        `.  
 ${AnsiColor.GREEN}|/\'..' /  / /   | |_     `-.______ /   |   |  \  \         `''-...... -'    |  |   |  | \_______|/
 ${AnsiColor.GREEN}'  `'-'`   \ \._,\ '/              `    '    \  \  \                         |  |   |  |
 ${AnsiColor.GREEN}            `--'  `"                   '------'  '---'                       '--'   '--'
+
+${AnsiColor.WHITE} Name of the app: ${build.name}
+${AnsiColor.WHITE} Version of the app: ${build.version}
+${AnsiColor.WHITE} Description of the app: ${build.description}
+
+${AnsiColor.RED} If something is broken, feel free to contact me.
+
 ${AnsiColor.DEFAULT}
