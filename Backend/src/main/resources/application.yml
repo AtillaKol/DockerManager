@@ -5,7 +5,6 @@ build:
   version: @project.version@
 
 
-#Change path to the location of your docker-socket
-docker:
-  socket:
-    path: /var/run/docker.sock
+appdata:
+  #Change path to the location of your docker-socket
+  dockerSocketPath: /var/run/docker.sock
