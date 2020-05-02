@@ -1,19 +1,18 @@
-package ch.dockermanager.backend;
+package ch.dockermanager.backend.Config;
 
+import ch.dockermanager.backend.AbstractIntegrationClass;
 import ch.dockermanager.backend.config.ApplicationYMLConfig;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest(classes = Run.class)
-@ExtendWith(SpringExtension.class)
 @EnableConfigurationProperties(value = ApplicationYMLConfig.class)
-public class ApplicationYMLConfigTest {
+/**
+ * Test will probably fail in your environment, depending if the URI to the socket is the same.
+ */
+public class ApplicationYMLConfigTest extends AbstractIntegrationClass {
 
     @Autowired
     ApplicationYMLConfig applicationYMLConfig;
