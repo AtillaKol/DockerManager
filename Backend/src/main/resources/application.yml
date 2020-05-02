@@ -7,4 +7,4 @@ build:
 
 appdata:
   #Change path to the location of your docker-socket
-  dockerSocketPath: /var/run/docker.sock
+  dockerSocketURI: http://unix:/var/run/docker.sock:/v1.40/

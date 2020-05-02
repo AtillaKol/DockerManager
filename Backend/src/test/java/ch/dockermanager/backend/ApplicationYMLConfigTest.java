@@ -20,6 +20,6 @@ public class ApplicationYMLConfigTest {
 
     @Test
     public void test_PathToDockerSocket() {
-        assertEquals("/var/run/docker.sock", applicationYMLConfig.getDockerSocketPath());
+        assertEquals("http://unix:/var/run/docker.sock:/v1.40/", applicationYMLConfig.getDockerSocketURI());
     }
 }
