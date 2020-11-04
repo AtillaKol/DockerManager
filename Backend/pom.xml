@@ -31,6 +31,7 @@
     </parent>
 
     <dependencies>
+        <!--Spring Boot Dependencies-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -42,6 +43,13 @@
             <version>${spring.boot.starter.version}</version>
         </dependency>
 
+        <!--Docker Api Dependencies-->
+        <dependency>
+            <groupId>com.github.docker-java</groupId>
+            <artifactId>docker-java-api</artifactId>
+            <version>3.2.5</version>
+        </dependency>
+        
         <!--Test Dependencies-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
