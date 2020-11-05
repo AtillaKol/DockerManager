@@ -22,6 +22,7 @@
     <properties>
         <spring.boot.starter.version>2.3.5.RELEASE</spring.boot.starter.version>
         <rest-assured.version>3.3.0</rest-assured.version>
+        <docker-api.version>3.2.5</docker-api.version>
     </properties>
 
     <parent>
@@ -46,8 +47,13 @@
         <!--Docker Api Dependencies-->
         <dependency>
             <groupId>com.github.docker-java</groupId>
-            <artifactId>docker-java-api</artifactId>
-            <version>3.2.5</version>
+            <artifactId>docker-java-core</artifactId>
+            <version>${docker-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.docker-java</groupId>
+            <artifactId>docker-java-transport-httpclient5</artifactId>
+            <version>${docker-api.version}</version>
         </dependency>
 
         <!--Test Dependencies-->
